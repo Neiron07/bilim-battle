@@ -8,7 +8,7 @@ export default function Tournament() {
     const [tournament, setTournament] = useState({});
     
     useEffect(() => {
-        axios(`http://64.226.96.67/tournaments/${params.id}`).then(data => {
+        axios(`https://bilimjarys.online/tournaments/${params.id}`).then(data => {
             setTournament(data.data.tournament);
         }).catch(err => {
             //Handle error popup here or make an 404 page

@@ -9,7 +9,7 @@ export default function User() {
 
   useEffect(() => {
     let userID = params.id;
-    axios(`http://64.226.96.67/identity/profile/${userID}`)
+    axios(`https://bilimjarys.online/identity/profile/${userID}`)
       .then((data) => {
         setUserData(data.data.user);
       })

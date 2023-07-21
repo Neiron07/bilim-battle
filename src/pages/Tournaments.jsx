@@ -7,7 +7,7 @@ export default function Tournaments() {
   const [tournaments, setTournaments] = useState([]);
 
   useEffect(() => {
-    axios("http://64.226.96.67/tournaments/all?state=open&lim=10")
+    axios("https://bilimjarys.online/tournaments/all?state=open&lim=10")
       .then((data) => {
         setTournaments(data.data.data);
       })

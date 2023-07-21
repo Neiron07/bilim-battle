@@ -34,7 +34,7 @@ export default function Login() {
               e.preventDefault();
 
               axios
-                .post("http://64.226.96.67/identity/login", {
+                .post("https://bilimjarys.online/identity/login", {
                   email: email,
                   password: password,
                 })
@@ -76,7 +76,7 @@ export default function Login() {
               e.preventDefault();
 
               axios
-                .post("http://64.226.96.67/identity/signup", {
+                .post("https://bilimjarys.online/identity/signup", {
                   fullName: fullName,
                   email: email,
                   password: password,
