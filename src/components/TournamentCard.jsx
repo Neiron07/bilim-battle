@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrophy, faUserGraduate, faCalendarAlt, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 function TournamentCard(props) {
   return (
@@ -11,16 +13,16 @@ function TournamentCard(props) {
             <h3>{props.name}</h3>
             <ul>
               <li>
-                <b>Prize: </b> 
-                {props.prize}tg
+                <FontAwesomeIcon icon={faTrophy} /> {props.prize}
               </li>
               <li>
-                <b>Grade: </b> 
-                {props.grade}
+                <FontAwesomeIcon icon={faUserGraduate} /> {props.grade}
               </li>
               <li>
-                <b>Date: </b> 
-                {props.date}
+                <FontAwesomeIcon icon={faCalendarAlt} /> {props.date} Астана
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faUsers} /> {props.count_players} игроков
               </li>
             </ul>
           </div>
@@ -38,6 +40,8 @@ TournamentCard.propTypes = {
   grade: PropTypes.string,
   image: PropTypes.string,
   date: PropTypes.string,
+  count_players: PropTypes.number, // Добавили новый prop для количества игроков
+  state: PropTypes.string
 };
 
 export default TournamentCard;

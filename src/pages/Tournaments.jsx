@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
-
 import TournamentCard from "../components/TournamentCard";
 import axios from "axios";
 
 export default function Tournaments() {
   const [tournaments, setTournaments] = useState([]);
+  const [tournamentStatus, setTournamentStatus] = useState("open"); // "open" или "completed"
 
   useEffect(() => {
-    axios("https://bilimjarys.online/tournaments/all?state=open&lim=10")
+    axios(
+      `http://64.226.96.67/tournaments/all?state=${tournamentStatus}&lim=10`
+    )
       .then((data) => {
         setTournaments(data.data.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [tournamentStatus]);
 
   return (
     <section style={{ paddingTop: 0 }}>
@@ -23,8 +25,7 @@ export default function Tournaments() {
           <div className="stained-text">
             <h1 className="heading">Найди свое</h1>
             <p>
-            На нашей платформе вы можете принять участие  в разных турнирах и соревноваться с другими участниками по всей стране и с любой точки 
-            в стране
+              На нашей платформе вы можете принять участие в разных турнирах и соревноваться с другими участниками по всей стране и с любой точки в стране
             </p>
           </div>
         </div>
@@ -32,47 +33,41 @@ export default function Tournaments() {
       <div className="container">
         <main>
           <form action="">
-            <input
-              type="text"
-              placeholder="Search tournament"
-              id="tournament-search"
-            />
-            <select name="" id="search-type">
-              <option value="math">Math</option>
-              <option value="chemistry">Chemistry</option>
-              <option value="physics">Physics</option>
-              <option value="informatics">Informatics</option>
+            <select
+              name=""
+              id="search-type"
+              value={tournamentStatus}
+              onChange={(e) => setTournamentStatus(e.target.value)}
+            >
+              <option value="open">Открытые</option>
+              <option value="closed">Завершенные</option>
             </select>
-            <button className="join" style={{marginLeft: "20px", transform: "translateY(5px)", minWidth: "40px"}}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#FFF"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </button>
           </form>
         </main>
         <div className="tournament-grid">
-          {tournaments.map((tournament) => (
-            <TournamentCard
-              key={tournament._id}
-              id={tournament._id}
-              name={tournament.name}
-              prize={tournament.prizePool}
-              grade={tournament.class}
-              image={tournament.image}
-              date={tournament.startDate}
-            />
-          ))}
+          {tournaments.map((tournament) => {
+            const formattedDate = new Date(tournament.startDate).toLocaleString("ru-RU", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric",
+            });
+
+            return (
+              <TournamentCard
+                key={tournament._id}
+                id={tournament._id}
+                name={tournament.name}
+                prize={tournament.prizePool}
+                grade={tournament.class}
+                image={tournament.image}
+                date={formattedDate}
+                count_players={tournament.numberOfPlayers}
+                state={tournament.state}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

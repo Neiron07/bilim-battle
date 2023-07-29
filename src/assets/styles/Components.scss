@@ -1,3 +1,4 @@
+/* Общие стили */
 nav {
   padding: 20px 0;
 
@@ -71,22 +72,108 @@ img[alt="avatar"] {
 #tournament-search,
 #search-type {
   box-shadow: 0 2px 10px #ccc;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-right: 10px;
 }
 
 #search-type {
   margin-left: 30px;
-  font-size: 18px;
 }
 
 #tournament-hero {
   background-image: url(../img/hero-back.jpg);
   background-size: cover;
   background-position: center;
+  padding: 80px 0;
+  text-align: center;
+  color: #fff;
 
   h1 {
-    font-size: 40px;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    overflow: hidden; /* Скрыть лишний текст до анимации */
+    white-space: nowrap; /* Отключить перенос текста на новую строку */
+    border-right: 2px solid #fff; /* Создать иллюзию появления текста посимвольно */
+    animation: typing 5s steps(40), blink-caret 0.5s step-end infinite; /* Анимация */
+  }
+
+  p {
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  form {
+    margin-top: 40px;
+
+    input[type="text"],
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px #ccc;
+      margin-right: 10px;
+    }
+
+    select {
+      background-color: #fff;
+      box-shadow: 0 2px 10px #ccc;
+    }
+
+    button.join {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #007bff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      svg {
+        stroke: #fff;
+      }
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
   }
 }
+
+@keyframes typing {
+  from {
+    width: 0; /* Начинаем анимацию с нулевой ширины */
+  }
+  to {
+    width: 100%; /* Заканчиваем анимацию с 100% ширины (полностью видимый текст) */
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent; /* Начало и конец анимации: мигающий курсор невидим */
+  }
+  50% {
+    border-color: #fff; /* Середина анимации: мигающий курсор видим */
+  }
+}
+
 
 .tournament-grid {
   display: grid;
@@ -100,25 +187,48 @@ img[alt="avatar"] {
     padding: 15px;
     transition: all 0.3s;
     border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px #ccc;
+
+    /* Изменим высоту карточки, чтобы она была достаточно высокой для вмещения картинки */
+    height: 350px;
+
+    /* Выравнивание содержимого по центру */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Поместим картинку турнира вверх блока и займем всю доступную ширину */
+    img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0; /* Закруглим только верхние углы */
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 10px 0; /* Добавьте небольшой отступ вниз и вверх для названия */
+      font-weight: bold;
+      color: #007bff; /* Изменим цвет названия, чтобы оно выделялось */
+    }
 
     ul {
       list-style: none;
       color: #555;
-      margin-top: 25px;
-      line-height: 30px;
-    }
-
-    img {
-      max-width: 125px;
-      margin-bottom: 20px;
-      border-radius: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.5;
     }
 
     &:hover {
-      background-color: #efefef;
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
   }
 }
+
 
 // Exact tournament page
 
@@ -182,6 +292,9 @@ footer {
       width: 100%;
       border: 2px #000 solid;
       margin-top: 20px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
     }
   }
 }
@@ -192,5 +305,47 @@ footer {
   }
   nav .navlinks {
     display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* Адаптация стилей для устройств с максимальной шириной экрана 1200px */
+  .tournament-grid {
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); /* Уменьшим минимальную ширину карточки */
+    gap: 1rem; /* Уменьшим расстояние между карточками */
+  }
+}
+
+@media (max-width: 900px) {
+  /* Адаптация стилей для устройств с максимальной шириной экрана 900px */
+  #tournament-hero h1 {
+    font-size: 36px; /* Уменьшим размер заголовка на главной странице */
+  }
+}
+
+@media (max-width: 700px) {
+  /* Адаптация стилей для устройств с максимальной шириной экрана 700px */
+  #tournament-hero h1 {
+    font-size: 28px; /* Уменьшим размер заголовка на главной странице для мобильных устройств */
+  }
+
+  form {
+    flex-direction: column; /* Сделаем элементы формы расположенными в столбец на мобильных устройствах */
+    align-items: center;
+    margin-top: 20px;
+
+    input[type="text"] {
+      width: 100%; /* Увеличим ширину текстового поля на мобильных устройствах */
+      margin-bottom: 10px; /* Добавим отступ между элементами формы */
+    }
+
+    select {
+      width: 100%; /* Увеличим ширину выпадающего списка на мобильных устройствах */
+      margin-bottom: 10px; /* Добавим отступ между элементами формы */
+    }
+
+    button.join {
+      margin-left: 0; /* Удалим левый отступ у кнопки на мобильных устройствах */
+    }
   }
 }

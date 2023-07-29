@@ -10,6 +10,7 @@ export default function Tournament() {
     useEffect(() => {
         axios(`https://bilimjarys.online/tournaments/${params.id}`).then(data => {
             setTournament(data.data.tournament);
+            console.log(data.data.tournament)
         }).catch(err => {
             //Handle error popup here or make an 404 page
             console.log(err);

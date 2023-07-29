@@ -21,7 +21,7 @@ export default function User() {
   return (
     <section>
       <div className="container flex-start">
-        <img src={userData.avatar || `https://api.dicebear.com/6.x/lorelei/svg`} alt="avatar" />
+        <img src={userData.avatar || `https://robohash.org/smart%20students`} alt="avatar" />
         <div className="info">
           <h1>{userData.fullName}</h1>
           <ul>
