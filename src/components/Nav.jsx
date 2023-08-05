@@ -14,7 +14,9 @@ export default function Nav() {
   return (
     <nav>
       <div className="container flex-center">
-        <img src={logo} alt="logo" />
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
         <div className="flex-center navlinks">
           <Link to="/">Главная</Link>
           <Link to="/tournaments">Турниры</Link>

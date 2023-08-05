@@ -6,7 +6,7 @@ import Tournament from "./Tournament";
 import Tournaments from "./Tournaments";
 import Login from "./Login";
 import User from "./User";
-
+// import ProfilePage from "./NewDesignUser";
 
 export default function Pages() {
     return (
