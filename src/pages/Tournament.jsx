@@ -1,154 +1,224 @@
-// Tournament.js
-import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
 export default function Tournament() {
-  let params = useParams();
+  const params = useParams();
   const [tournament, setTournament] = useState({});
-  const [winnerData, setWinnerData] = useState(null);
+  const [winnerAvatars, setWinnerAvatars] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
-    axios(`https://bilimjarys.online/tournaments/${params.id}`)
-      .then((data) => {
-        setTournament(data.data.tournament);
-        if (data.data.tournament.prizeDistribution) {
-          const winnerId = data.data.tournament.prizeDistribution[0].winner;
-          if (winnerId) {
-            // Fetch the winner's data
-            axios(`https://bilimjarys.online/identity/profile/${winnerId}`)
-              .then((winnerData) => {
-                setWinnerData(winnerData.data.user);
-              })
-              .catch((err) => {
-                console.log(err);
-              });
-          }
-        }
-      })
-      .catch((err) => {
+    const fetchTournamentData = async () => {
+      try {
+        const tournamentResponse = await axios.get(`https://bilimjarys.online/tournaments/${params.id}`);
+        setTournament(tournamentResponse.data.tournament);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        console.log(error);
         // Handle error popup here or make a 404 page
-        console.log(err);
-      });
+      }
+    };
+
+    const fetchPlayersData = async () => {
+      try {
+        const playersResponse = await axios.get(`https://bilimjarys.online/tournaments/${params.id}/players`);
+        setPlayers(playersResponse.data.players);
+      } catch (error) {
+        console.log(error);
+        // Handle error popup here or make a 404 page
+      }
+    };
+
+    fetchTournamentData();
+    fetchPlayersData();
   }, [params.id]);
 
-  // Function to get the winner's name or "Будет решено"
-  const getWinnerName = () => {
+  useEffect(() => {
     if (tournament.prizeDistribution) {
-      const winner = tournament.prizeDistribution.find((prize) => prize.winner);
-      if (winner) {
-        return winner.winner;
-      }
-    }
-    return "Будет решено...";
-  };
+      const winnerIDs = tournament.prizeDistribution
+        .filter((prize) => prize.winner)
+        .map((prize) => prize.winner);
 
-  // Function to get the winner's avatar URL
-  const getWinnerAvatar = () => {
-    if (winnerData && winnerData.avatar) {
-      return winnerData.avatar;
+      const fetchWinnerAvatars = async () => {
+        const avatarPromises = winnerIDs.map(async (userID) => {
+          try {
+            const response = await axios.get(`https://bilimjarys.online/identity/profile/${userID}`);
+            const fullName = response.data.user.fullName;
+            const avatar = response.data.user.avatar || defaultAvatarURL;
+            return { userID, fullName, avatar };
+          } catch (error) {
+            return { userID, avatar: defaultAvatarURL };
+          }
+        });
+
+        const avatars = await Promise.all(avatarPromises);
+        const avatarMap = avatars.reduce((map, avatarData) => {
+          if (avatarData) {
+            map[avatarData.userID] = avatarData.avatar;
+          }
+          return map;
+        }, {});
+        setWinnerAvatars(avatarMap);
+      };
+
+      fetchWinnerAvatars();
     }
-    // Return a default avatar URL if winner's avatar is not available
-    return "https://example.com/default-avatar.jpg";
-  };
+  }, [tournament.prizeDistribution]);
+
+  const defaultAvatarURL =
+    "https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Prescription01&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Tanned";
 
   return (
     <section className="tournament">
-      {/* Tournament Image as Background */}
-      <div
-        className="tournament-image"
-        style={{ backgroundImage: `url(${tournament.image})` }}
-      ></div>
-
-      <div className="container">
-        {/* Block 1: Tournament Information */}
-        <div className="tournament-info">
-          <div className="stained-text">
-            <h1 className="tournament-name">{tournament.name}</h1>
-            <ul>
-              <li>
-                <b>Приз: </b> {tournament.prizePool}
-              </li>
-              <li>
-                <b>Класс: </b> {tournament.class}
-              </li>
-              <li>
-                <b>Дата: </b> {tournament.startDate}
-              </li>
-              <li>
-                <b>Макс. кол-во участников: </b> {tournament.maxPlayers}
-              </li>
-              <li>
-                <b>Длительность: </b> {tournament.duration}
-              </li>
-              <li>
-                <b>Зарегистрировано: </b> {tournament.numberOfPlayers}
-              </li>
-              <li>
-                <b>Правила: </b>
-                {tournament.rules}
-              </li>
-            </ul>
-            <button className="join">Зарегистрироваться</button>
+      {/* Tournament Image as Banner */}
+      {loading ? ( // Отобразите loader, если loading равен true
+        <Loader />
+      ) : (
+        <>
+          <div className="banner">
+            <div className="banner-text">
+              <h2>{tournament.name}</h2>
+            </div>
+            <img src={tournament.image} alt={tournament.name} />
           </div>
-        </div>
-        {/* Block 2: Prizes and Awards */}
-        <div className="tournament-prizes">
-          <h2>Награды за места</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Место</th>
-                <th>Имя участника</th>
-                <th>Приз</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div className="participate-btn">
+            <button>🚀   Участвовать   🚀</button>
+          </div>
+          {/* Tournament Timeline */}
+          <div className="timeline">
+            <div className="timeline-item">
+              <div className="timeline-icon">🎓</div>
+              <div className="timeline-content">
+                <p>
+                  <strong>Класс:</strong> {tournament.class}
+                </p>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-icon">🔔</div>
+              <div className="timeline-content">
+                <p>
+                  <strong>Статус:</strong> {tournament.state}
+                </p>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-icon">🗓️</div>
+              <div className="timeline-content">
+                <p>
+                  <strong>Дата и время:</strong> {new Date(tournament.startDate).toLocaleDateString()}, Время: {new Date(tournament.startDate).toLocaleTimeString()}
+                </p>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-icon">⏱️</div>
+              <div className="timeline-content">
+                <p>
+                  <strong>Продолжительность:</strong> {tournament.duration}
+                </p>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-icon">👥</div>
+              <div className="timeline-content">
+                <p>
+                  <strong>Количество участников:</strong> Мин: {tournament.minPlayers}, Макс: {tournament.maxPlayers}
+                </p>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-icon">🎯</div>
+              <div className="timeline-content">
+                <p>
+                  <strong>Режим турнира:</strong> {tournament.tournamentType}
+                </p>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-icon">📹</div>
+              <div className="timeline-content">
+                <p>
+                  <strong>Видео-чат:</strong> {tournament.videoChat ? "Обязательно" : "Необязательно"}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="prizes">
+            <h3>Награды за турнир</h3>
+            <div className="prizes-grid">
+              {/* Conditional check for tournament.prizeDistribution */}
               {tournament.prizeDistribution &&
                 tournament.prizeDistribution.map((prize, index) => (
-                  <tr key={prize._id}>
-                    <td>{index + 1}</td>
-                    <td>
-                      {prize.winner ? (
-                        <Link to={`/user/${prize.winner}`}>
-                          <div className="winner-avatar">
-                            <img
-                              className="avatar-circle"
-                              src={getWinnerAvatar()}
-                              alt="Winner Avatar"
-                            />
-                          </div>
-                          <div className="winner-name">
-                            {winnerData ? (
-                              <Link to={`/user/${winnerData._id}`}>
-                                {winnerData.fullName}
-                              </Link>
-                            ) : (
-                              "Будет решено..."
-                            )}
-                          </div>
-                        </Link>
-                      ) : (
-                        "Будет решено"
-                      )}
-                    </td>
-                    <td className="prize-icon">
-                      {index === 0
-                        ? "🏆"
-                        : index === 1
-                        ? "🥈"
-                        : index === 2
-                        ? "🥉"
-                        : ""}
-                      {index < 3 ? " " + prize.prize : ""}
-                    </td>
-                  </tr>
+                  <div className="prize-item" key={index}>
+                    {index === 0 && (
+                      <div className="trophy-icon">
+                        🏆
+                      </div>
+                    )}
+                    {index === 1 && (
+                      <div className="trophy-icon">
+                        🥈
+                      </div>
+                    )}
+                    {index === 2 && (
+                      <div className="trophy-icon">
+                        🥉
+                      </div>
+                    )}
+                    <div className="prize">
+                      <strong>{`${index + 1} место:`} <p>{prize.prize}</p></strong>
+                    </div>
+                    {prize.winner ? (
+                      <div className="winner">
+                        <strong>Победитель:</strong>
+                        <div className="winner-info">
+                          {winnerAvatars && winnerAvatars[prize.winner] ? (
+                            <img src={winnerAvatars[prize.winner]} alt={prize.winner} />
+                          ) : (
+                            <img src={defaultAvatarURL} alt="Default Avatar" />
+                          )}
+                          <Link to={`/user/${prize.winner}`}>
+                            <p>{prize.winner}</p>
+                          </Link>
+                        </div>
+
+                      </div>
+
+                    ) : (
+                      <div className="winner">Будет решено..</div>
+                    )}
+                  </div>
                 ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            </div>
+          </div>
+          <div className="rules">
+            <h3>Правила</h3>
+            <p>{tournament.rules}</p>
+          </div>
+          <div className="participants">
+            <h3>Участники:</h3>
+            {players.length === 0 ? (
+              <p>Пока нет зарегистрировавшихся</p>
+            ) : (
+              <ul>
+                {players.map((player, index) => (
+                  <li key={index}>
+                    <Link to={`/user/${player.player._id}`} className="player-link">
+                      {player.player.fullName} ({player.player.rating})
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+        </>
+      )}
     </section>
   );
 }

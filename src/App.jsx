@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 // Pages wrapper
 import Pages from "./pages/Pages";
 
+// ScrollTop
+import ScrollToTop from "./scrollTop";
+
 // Main styles
 import "./assets/styles/Main.scss";
 
@@ -14,6 +17,7 @@ import "./assets/styles/Main.scss";
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav/>
       <Pages/>
       <Footer/>

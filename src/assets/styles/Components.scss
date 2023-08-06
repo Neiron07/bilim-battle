@@ -1,4 +1,40 @@
 /* Общие стили */
+/* Loader.css */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.school-loader {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100px;
+  height: 100px;
+}
+
+/* Стили для вращающейся картинки */
+
+.rotating-book {
+  width: 80px;
+  height: 80px;
+  animation: spin 4s cubic-bezier(0.36, 0.11, 0.89, 0.32) infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
 nav {
   position: sticky;
   top: 0;
@@ -400,31 +436,295 @@ td:first-child {
 }
 
 .tournament {
-  background-color: #efefef;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 
-  img {
-    max-width: 300px;
-    border-radius: 10px;
+  .participate-btn {
+    text-align: center;
+    margin-bottom: 20px;
   }
 
-  .container {
-    position: relative;
-    margin-top: -150px; /* Adjust this value to control the vertical position of the content */
-    padding-top: 20px; /* Add some space between the content and the background image */
-    background-color: #fff; /* Set the background color of the content area */
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .participate-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #00a3ff; /* Blue color */
+    color: #ffffff; /* White color for text */
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
 
-  ul {
-    margin-top: 40px;
+  .participants {
+    margin-top: 30px;
+    margin-bottom: 100px;
+  }
+  .participants ul {
     list-style: none;
+    padding: 0;
+  }
+  
+  .participants li {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .player-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    background-color: var(--player-background-color, #f0f0f0);
+    border-radius: 8px;
+  }
+  
+  .player-link:hover {
+    text-decoration: underline;
+  }
 
-    li {
-      margin-top: 15px;
-    }
+  .participate-button:hover {
+    background-color: #008bd1; /* Darker shade of blue on hover */
+  }
+  .prizes {
+    margin-top: 40px;
+  }
+  
+  .prizes h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  .participants h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  
+  .prizes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .prize-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .prize {
+    font-size: 18px;
+    color: #000;
+  }
+  .prize p {
+    color: #0148BF;
+    margin: 0;
+  }
+  .winner {
+    display: flex;
+    flex-direction: column; 
+    align-items: left;
+    gap: 10px; /* Add some spacing between the avatar and winner info */
+  }
+  .winner img {
+    width: 50px; /* Set the width of the avatar image as per your preference */
+    height: 50px; /* Set the height of the avatar image as per your preference */
+    border-radius: 50%; /* Make the avatar image round */
+  }
+  .winner strong {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+  }
+  .winner-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .winner-info img {
+    margin-right: 10px;
+  }
+  .winner p {
+    color: #0148BF;
+    font-size: 18px;
+    margin: 0;
+  }
+  .trophy-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .rules {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .rules h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+
+  .rules p {
+    color: #e70606;
+    font-size: 18px;
+    margin: 0;
   }
 }
+
+.banner {
+  position: relative;
+  /* Set the maximum width for the banner image */
+  max-width: 100%;
+  /* Set the border-radius to make the edges rounded */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.banner img {
+  /* Set the image to take the full width of the banner */
+  width: 100%;
+  height: 400px; /* To maintain aspect ratio */
+  filter: blur(0px);
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%; /* Make the text element take the full width of the banner */
+  z-index: 1; /* Bring the text to the front */
+}
+
+.banner-text h2 {
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 48px;
+  font-size: 60px; /* Increase the font size for better readability */
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7); /* Darker text shadow for better contrast */
+  margin: 0;
+}
+
+.timeline {
+  margin-top: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.timeline-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.timeline-content {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  flex: 1;
+}
+
+.timeline-content p {
+  color: #0148BF;
+  margin: 0;
+}
+
+.timeline-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.timeline-info strong {
+  margin-right: 10px;
+}
+
+/* Style the timeline item connectors */
+
+.timeline-item:first-child:before {
+  top: 0;
+}
+
+.timeline-item:last-child:before {
+  height: 50%;
+}
+
+@media (max-width: 767px) {
+  .tournament .banner-text h2 {
+    font-size: 35px; /* Smaller font size for mobile screens */
+  }
+  .banner {
+    flex-direction: column;
+  }
+
+  .banner-text {
+    margin-bottom: 20px;
+  }
+
+  .timeline {
+    display: block;
+  }
+
+  .timeline-item {
+    margin-bottom: 20px;
+  }
+
+  .prizes-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .winner-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .winner-info img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Tablet Styles (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .timeline-item {
+    margin-bottom: 15px;
+  }
+
+  .prizes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop Styles (1024px and above) */
+@media (min-width: 1024px) {
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .timeline-item {
+    margin-bottom: 10px;
+  }
+
+  .prizes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Style the timeline item connectors for smaller screens */
 
 footer {
   background-color: #000;
