@@ -471,6 +471,12 @@ td:first-child {
     font-size: 20px;
     margin-bottom: 8px;
   }
+
+  .participants img {
+    width: 50px; /* Set the width of the avatar image as per your preference */
+    height: 50px; /* Set the height of the avatar image as per your preference */
+    border-radius: 50%; /* Make the avatar image round */
+  }
   
   .player-link {
     display: block;

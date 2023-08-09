@@ -1,12 +1,20 @@
 import axios from "axios";
 import { useState } from "react";
 
+//import ReCAPTCHA from "react-google-recaptcha";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
+  const [age, setAge] = useState(""); // Добавленное поле "age"
+  const [school, setSchool] = useState("");
   const [activeTab, setActiveTab] = useState("login");
+  //const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false);
 
+  /* function onChange(value) {
+    setIsCaptchaSuccess(true)
+  } */
   return (
     <section id="auth">
       <div className="container">
@@ -80,6 +88,8 @@ export default function Login() {
                   fullName: fullName,
                   email: email,
                   password: password,
+                  age: age,
+                  school: school
                 })
                 .then((res) => {
                   localStorage.setItem("token", res.data.token);
@@ -93,7 +103,7 @@ export default function Login() {
           >
             <input
               type="text"
-              placeholder="Full name"
+              placeholder="Фамилие и имя"
               value={fullName}
               onChange={(e) => {
                 setFullName(e.target.value);
@@ -110,6 +120,24 @@ export default function Login() {
               required
             />
             <input
+              type="number"
+              placeholder="Возраст"
+              value={age}
+              onChange={(e) => {
+                setAge(e.target.value);
+              }}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Школа"
+              value={school}
+              onChange={(e) => {
+                setSchool(e.target.value);
+              }}
+              required
+            />
+            <input
               type="password"
               placeholder="Password"
               value={password}
@@ -118,6 +146,10 @@ export default function Login() {
               }}
               required
             />
+              {/*<ReCAPTCHA
+              sitekey="6Lf1fY8nAAAAAJ_PUo0Dokms8mL2EvakFPQszcNB"
+              onChange={onChange}
+            /> */}
             <button className="join">Sign up</button>
           </form>
         )}

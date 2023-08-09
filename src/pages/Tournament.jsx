@@ -207,16 +207,19 @@ export default function Tournament() {
             ) : (
               <ul>
                 {players.map((player, index) => (
-                  <li key={index}>
+                  <li key={index} className="player-item">
                     <Link to={`/user/${player.player._id}`} className="player-link">
-                      {player.player.fullName} ({player.player.rating})
+                      <img src={player.player.avatar} alt="avatar" className="player-avatar" />
+                      <div className="player-details">
+                        <span className="player-name">{player.player.fullName}</span>
+                        <span className="player-rating">({player.player.rating})</span>
+                      </div>
                     </Link>
                   </li>
                 ))}
               </ul>
             )}
           </div>
-
         </>
       )}
     </section>
