@@ -25,7 +25,7 @@ export default function Login() {
               setActiveTab("login");
             }}
           >
-            Sign in
+            Войти
           </p>
           <p
             className={activeTab === "register" ? "active" : ""}
@@ -33,7 +33,7 @@ export default function Login() {
               setActiveTab("register");
             }}
           >
-            Sign up
+            Регистрация
           </p>
         </div>
         {activeTab === "login" ? (
@@ -75,7 +75,7 @@ export default function Login() {
               required
             />
             <button className="join" type="submit">
-              Sign in
+              Войти
             </button>
           </form>
         ) : (
@@ -150,7 +150,7 @@ export default function Login() {
               sitekey="6Lf1fY8nAAAAAJ_PUo0Dokms8mL2EvakFPQszcNB"
               onChange={onChange}
             /> */}
-            <button className="join">Sign up</button>
+            <button className="join">Зарегистрироваться</button>
           </form>
         )}
       </div>
