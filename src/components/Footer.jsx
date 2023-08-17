@@ -3,7 +3,7 @@ export default function Footer() {
     <footer>
       <div className="container flex-start">
         <div className="col">
-          <h1>BJ</h1>
+          <h1>Bilim Jarys</h1>
           <p>Jogary bilim - sapaly bilim</p>
           <div className="flex-center media-links">
             <svg

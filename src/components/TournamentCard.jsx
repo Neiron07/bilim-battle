@@ -8,7 +8,7 @@ function TournamentCard(props) {
     <Link to={"/tournaments/" + props.id}>
       <div className="card">
         <div className="flex-center">
-          <img src={props.image} alt="tournament-mini" />
+          <img src={props.image || 'https://i.imgur.com/W5N1x8Z.jpg'} alt="tournament-mini" />
           <div className="tournament-info">
             <h3>{props.name}</h3>
             <ul>
