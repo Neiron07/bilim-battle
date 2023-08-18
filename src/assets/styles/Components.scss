@@ -200,6 +200,7 @@ img[alt="avatar"] {
   color: #fff;
 
   h1 {
+    color: #DB3C34;
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -210,6 +211,7 @@ img[alt="avatar"] {
   }
 
   p {
+    color: #DB3C34;
     font-size: 20px;
     max-width: 600px;
     margin: 0 auto;
@@ -263,11 +265,6 @@ img[alt="avatar"] {
 
     .checkbox {
       margin-top: 10px;
-    }
-    
-    .checkbox label {
-      display: flex;
-      align-items: center;
     }
     
     .checkbox input[type="checkbox"] {
@@ -635,7 +632,7 @@ td:first-child {
 .banner {
   background-size: cover;
   background-position: center;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   border-radius: 10px;
   display: flex;
   justify-content: space-between; /* Space evenly between children */
@@ -678,7 +675,7 @@ td:first-child {
 }
 
 .tournament-id-copy h2 {
-  color: #a01515;
+  color: #DB3C34;
   font-weight: bold;
   font-weight: bold;
   line-height: 48px;
@@ -688,7 +685,7 @@ td:first-child {
 
 
 .tournament-date h2 {
-  color: #a01515;
+  color: #DB3C34;
   font-weight: bold;
   font-weight: bold;
   line-height: 48px;
@@ -697,7 +694,7 @@ td:first-child {
 }
 
 .tournament-id-copy span {
-  color: #a01515;
+  color: #DB3C34;
   font-weight: bold;
   font-weight: bold;
   line-height: 48px;
@@ -720,7 +717,7 @@ td:first-child {
 }
 
 .timeline-icon {
-  color:#a01515;
+  color:#0148BF;
   font-size: 24px;
   margin-right: 10px;
   width: 34px; /* Задайте желаемую ширину иконки */
@@ -735,7 +732,7 @@ td:first-child {
 }
 
 .timeline-content p {
-  color: #0148BF;
+  color: #1368A4;
   margin: 0;
 }
 
@@ -876,7 +873,27 @@ footer {
       border-radius: 8px;
     }
   }
+  
+  /* Add this style to make the checkboxes and labels appear on the same line */
+  .checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Optional: Adjust as needed */
+  }
+  
+  .checkbox label {
+    margin-left: 5px; /* Optional: Adjust as needed */
+  }
 }
+
+/* Style for active tab */
+#tabs p.active {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Rest of your existing styles */
+
 
 @media (max-width: 700px) {
   .info {
