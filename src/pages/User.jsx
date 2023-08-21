@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { faCheckCircle, faUser, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import './../assets/styles/Profile.scss';
 
 export default function User() {
   let params = useParams();
@@ -11,6 +13,7 @@ export default function User() {
     let userID = params.id;
     axios(`https://bilimjarys.online/identity/profile/${userID}`)
       .then((data) => {
+        console.log(data.data.user)
         setUserData(data.data.user);
       })
       .catch((err) => {
@@ -21,14 +24,27 @@ export default function User() {
   return (
     <section>
       <div className="container flex-start">
-        <img src={userData.avatar || `https://robohash.org/smart%20students`} alt="avatar" />
+        <img src={userData.avatar || `https://robohash.org/smart`} alt="ava" />
+        <div className="icons">
+          <div className="icon status-icon">
+            <FontAwesomeIcon icon={faCheckCircle} />
+            {userData.isBan}
+          </div>
+          <div className="icon role-icon">
+            <FontAwesomeIcon icon={faUser} />
+            {userData.role}
+          </div>
+          <div className="icon rating-icon">
+            <FontAwesomeIcon icon={faStar} />
+            {userData.rating}
+          </div>
+        </div>
+
         <div className="info">
           <h1>{userData.fullName}</h1>
           <ul>
             <li><b>Возраст:</b> {userData.age || 16}</li>
-            <li><b>Рейтинг:</b> {userData.rating}</li>
-            <li><b>Роль:</b> {userData.role}</li>
-            <li><b>BIO:</b> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio architecto nulla ad explicabo! Harum, ex maiores ullam fugiat hic quisquam doloribus magni in doloremque soluta velit, iusto, obcaecati eaque nam!</li>
+            <li><b>Школа:</b> {userData.school || 'Не указано'}</li>
           </ul>
         </div>
       </div>

@@ -129,44 +129,12 @@ section,
 footer {
   padding: 100px 0;
 }
-
-// USER PAGE
-.user-hero {
-  background-image: url("../../../public/user-hero.png");
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 10rem;
-  margin-bottom: 40px;
-}
-
 img[alt="avatar"] {
   width: 250px;
   height: 250px;
   border-radius: 50%;
   margin-bottom: 30px;
   box-shadow: 0 2px 20px #bbb;
-}
-
-.info {
-  padding: 20px;
-  box-shadow: 0 2px 5px #ccc;
-  width: 60%;
-  border-radius: 10px;
-
-  ul {
-    list-style: none;
-    margin-top: 30px;
-    font-size: 20px;
-    color: #444;
-
-    li {
-      margin-top: 15px;
-      &:last-of-type {
-        font-size: 17px;
-      }
-    }
-  }
 }
 
 // Tournaments page

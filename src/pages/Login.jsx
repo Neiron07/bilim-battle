@@ -12,7 +12,6 @@ export default function Login() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [fieldErrors, setFieldErrors] = useState({});
   //const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false);
 
 
@@ -63,7 +62,6 @@ export default function Login() {
 
     if (Object.keys(errors).length > 0) {
       const firstErrorField = Object.keys(errors)[0]; // Получите имя первого поля с ошибкой
-      setFieldErrors(errors);
       setShowErrorModal(true);
       setErrorMessage(`Пожалуйста, заполните поле "${firstErrorField}" корректно.`);
       return;

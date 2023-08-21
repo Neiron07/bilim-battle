@@ -4,11 +4,11 @@ import axios from "axios";
 
 export default function Tournaments() {
   const [tournaments, setTournaments] = useState([]);
-  const [tournamentStatus, setTournamentStatus] = useState("open"); // "open" или "completed"
+  const [tournamentStatus, setTournamentStatus] = useState("open"); // "open" или "closed"
 
   useEffect(() => {
     axios(
-      `http://64.226.96.67/tournaments/all?state=${tournamentStatus}&lim=10`
+      `https://bilimjarys.online/tournaments/all?state=${tournamentStatus}&lim=10`
     )
       .then((data) => {
         setTournaments(data.data.data);

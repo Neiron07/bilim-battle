@@ -1,0 +1,85 @@
+/* USER PAGE */
+  
+.user-hero {
+    background-image: url("../../../public/user-hero.png");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 10rem;
+    margin-bottom: 40px;
+  }
+  
+  img[alt="ava"] {
+    display: block;
+    margin: 0 auto;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 20px #bbb;
+  }
+  
+  .user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Center icons vertically */
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+  
+  .icon {
+    text-align: center;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .status-icon {
+    background-color: #ffcc00;
+  }
+  
+  .role-icon {
+    background-color: #33cc33;
+  }
+  
+  .rating-icon {
+    background-color: #3399ff;
+  }
+  
+  .icon svg {
+    width: 100%;
+    height: auto;
+    color: white;
+  }
+
+  
+  .info {
+    padding: 20px;
+    box-shadow: 0 2px 5px #ccc;
+    width: 60%;
+    border-radius: 10px;
+  
+    ul {
+      list-style: none;
+      margin-top: 30px;
+      font-size: 20px;
+      color: #444;
+  
+      li {
+        margin-top: 15px;
+        &:last-of-type {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+  

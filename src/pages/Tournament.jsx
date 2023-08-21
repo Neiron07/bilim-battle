@@ -6,13 +6,71 @@ import Loader from "../components/Loader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap, faBell, faCalendar, faStopwatch, faUsers, faBullseye, faVideo } from "@fortawesome/free-solid-svg-icons";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Modal from "../components/Modal";
 
 export default function Tournament() {
   const params = useParams();
   const [tournament, setTournament] = useState({});
-  const [winnerAvatars, setWinnerAvatars] = useState(null);
   const [loading, setLoading] = useState(true);
   const [players, setPlayers] = useState([]);
+  const [participated, setParticipated] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowSuccessModal(false);
+    setShowErrorModal(false);
+    setFieldErrors(false);
+  };
+  const handleParticipate = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const playerId = localStorage.getItem("id");
+
+      if (!token || !playerId) {
+        // Handle the case when token or playerId is not available
+        setFieldErrors(true);
+        return;
+      }
+
+      const headers = {
+        Authorization: `Bearer ${token}`
+      };
+
+      const requestBody = {
+        playerId
+      };
+
+      const response = await axios.post(
+        `https://bilimjarys.online/tournaments/join/${params.id}`,
+        requestBody,
+        { headers }
+      );
+      if (response.status === 201) {
+        const storedParticipation = JSON.parse(localStorage.getItem('participationStatus')) || {};
+        storedParticipation[params.id] = true;
+        localStorage.setItem('participationStatus', JSON.stringify(storedParticipation));
+        setShowSuccessModal(true);
+        setParticipated(true);
+      }
+    } catch (error) {
+      if (error.response.data.error === 9){
+        setShowErrorModal(true)
+      } 
+      if (error.response.data.error === 7){
+        localStorage.clear();
+        setFieldErrors(true);
+      } 
+    }
+  };
+
+  useEffect(() => {
+    const initialParticipation = localStorage.getItem('participationStatus');
+    if (initialParticipation) {
+      setParticipated(JSON.parse(initialParticipation)[params.id] === true);
+    }
+  }, [params.id]);
 
   useEffect(() => {
     const fetchTournamentData = async () => {
@@ -41,38 +99,6 @@ export default function Tournament() {
     fetchPlayersData();
   }, [params.id]);
 
-  useEffect(() => {
-    if (tournament.prizeDistribution) {
-      const winnerIDs = tournament.prizeDistribution
-        .filter((prize) => prize.winner)
-        .map((prize) => prize.winner);
-
-      const fetchWinnerAvatars = async () => {
-        const avatarPromises = winnerIDs.map(async (userID) => {
-          try {
-            const response = await axios.get(`https://bilimjarys.online/identity/profile/${userID}`);
-            const fullName = response.data.user.fullName;
-            const avatar = response.data.user.avatar || defaultAvatarURL;
-            return { userID, fullName, avatar };
-          } catch (error) {
-            return { userID, avatar: defaultAvatarURL };
-          }
-        });
-
-        const avatars = await Promise.all(avatarPromises);
-        const avatarMap = avatars.reduce((map, avatarData) => {
-          if (avatarData) {
-            map[avatarData.userID] = avatarData.avatar;
-          }
-          return map;
-        }, {});
-        setWinnerAvatars(avatarMap);
-      };
-
-      fetchWinnerAvatars();
-    }
-  }, [tournament.prizeDistribution]);
-
   const defaultAvatarURL =
     "https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Prescription01&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Tanned";
 
@@ -99,7 +125,9 @@ export default function Tournament() {
                       <h2>{new Date(tournament.startDate).toLocaleDateString()}, Время: {new Date(tournament.startDate).toLocaleTimeString()}</h2>
                     </div>
                     <div className="participate-btn">
-                      <button>Участвовать</button>
+                      <button onClick={handleParticipate}>
+                        {participated ? "Вы уже участвуете в турнире" : "Участвовать"}
+                      </button>
                     </div>
                     <div className="social-buttons">
                       <a href="ссылка на ваш Instagram профиль" target="_blank" rel="noopener noreferrer">
@@ -208,13 +236,13 @@ export default function Tournament() {
                       <div className="winner">
                         <strong>Победитель:</strong>
                         <div className="winner-info">
-                          {winnerAvatars && winnerAvatars[prize.winner] ? (
-                            <img src={winnerAvatars[prize.winner]} alt={prize.winner} />
+                          {prize.winner.avatar ? (
+                            <img src={prize.winner.avatar} alt={prize.winner} />
                           ) : (
                             <img src={defaultAvatarURL} alt="Default Avatar" />
                           )}
                           <Link to={`/user/${prize.winner}`}>
-                            <p>{prize.winner}</p>
+                            <p>{prize.winner.fullName}</p>
                           </Link>
                         </div>
 
@@ -245,7 +273,7 @@ export default function Tournament() {
                       <img src={player.player.avatar} alt="avatar" className="player-avatar" />
                       <div className="player-details">
                         <span className="player-name">{player.player.fullName}</span>
-                        <span className="player-rating">({player.player.rating})</span>
+                        <span className="player-rating"> ({player.player.rating})</span>
                       </div>
                     </Link>
                   </li>
@@ -255,6 +283,18 @@ export default function Tournament() {
           </div>
         </>
       )}
+      <Modal isOpen={showSuccessModal} onClose={handleCloseModal}>
+        <h2>Успешно!</h2>
+        <p>Вы успешно зарегистрировались на турнир!</p>
+      </Modal>
+      <Modal isOpen={showErrorModal} onClose={handleCloseModal}>
+        <h2>Уведомление!</h2>
+        <p>Вы уже участвуете в турнире!</p>
+      </Modal>
+      <Modal isOpen={fieldErrors} onClose={handleCloseModal}>
+        <h2>Ошибка!</h2>
+        <p>Для участия в турнире Вы должны залогиниться на сайте!</p>
+      </Modal>
     </section>
   );
 }
