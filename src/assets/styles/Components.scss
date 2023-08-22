@@ -35,75 +35,125 @@
 
 
 
-nav {
+/* Nav.css */
+
+.navbar {
   position: sticky;
   top: 0;
-  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
   background-color: #ffffff;
-  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Default styles for navlinks (desktop version) */
-nav .navlinks {
-  width: 300px;
-  font-size: 18px;
+
+.logo-container {
+  display: flex;
+  align-items: center;
 }
 
-/* Styles for the burger menu (mobile version) */
-nav .burger-menu {
-  display: none; /* Hide the burger menu by default */
+.user-balance {
+  font-weight: bold;
+  margin-right: -100px; /* Добавленный отступ справа */
+  color: #333; 
 }
 
-.nav-scroll-hide {
-  transform: translateY(0); /* Start with the navbar visible */
-  transition: transform 0.3s; /* Smooth transition on scroll */
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
 }
 
-.nav-scroll-hide.scrolled {
-  transform: translateY(-100%); /* Move the navbar up (out of view) when scrolled down */
+.logo-text {
+  margin-left: 5rem;
+  color:#0148BF;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-nav a:hover {
-  color: #0148BF; /* Change the color on hover */
+.menu-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-/* Add a pseudo-element for the hover effect */
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -2px; /* Position it below the text */
-  left: 0;
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-icon.open {
+  transform: rotate(90deg);
+}
+
+.bar {
   width: 100%;
-  height: 2px;
-  background-color: #0148BF; /* Highlight color on hover */
-  transform: scaleX(0); /* Start with a zero width */
-  transform-origin: left; /* Transform origin on the left side */
-  transition: transform 0.3s ease-in-out; /* Smooth animation on hover */
+  height: 3px;
+  background-color: #333;
 }
 
-nav a:hover::after {
-  transform: scaleX(1); /* Expand the width to 100% on hover */
-}
+.menu {
+  border-radius: 10px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  border: 1px solid #ddd;
+  border-top: none;
+  z-index: 1; /* Чтобы меню было поверх остальных элементов */
 
-@media (max-width: 768px) {
-  nav .navlinks {
-    display: none; /* Hide the navlinks in desktop version on mobile */
-  }
-
-  /* Show the burger menu icon */
-  nav .burger-menu {
+  .horizontal-liner {
     display: block;
-    font-size: 24px;
-    cursor: pointer;
+    height: 1px;
+    width: 100%;
+    background-color: #ccc;
+  }
+}
+
+
+.menu-item {
+  padding: 1rem;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.menu-item-icon {
+  margin-right: 0.5rem;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Медиа-запрос для адаптивности */
+@media screen and (max-width: 768px) {
+  .logo-text {
+    margin-left: 0rem;
+  }
+  .menu {
+    border: none;
+    width: 250px;
+  }
+  .user-balance {
+    margin-left: -2rem; /* Добавленный отступ слева */
+    color: #333; /* Цвет текста */
+  }
+  .menu-item {
+    font-size: 0.9rem;
   }
 
-  /* Show the navlinks in mobile version when the burger menu is active */
-  nav .navlinks-mobile {
-    display: flex;
-  }
-
-  /* Hide the navbar when the burger menu is active */
   .nav-scroll-hide.scrolled {
     transform: translateY(0);
   }
