@@ -40,16 +40,14 @@ export default function Footer() {
         <div className="col">
           <h2>Контакты</h2>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-            distinctio dolorum autem facilis excepturi
+            bilimjarys@gmail.com<br /><br />
+            8 701 536 90 40
           </p>
         </div>
         <div className="col">
-          <h2>Турниры</h2>
+          <h2>О нас</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum
-            perferendis rerum quibusdam recusandae cupiditate, quia ducimus
-            laboriosam ipsum earum voluptas nam obcaecati beatae.
+          Мы - команда энтузиастов, объединенных целью раскрыть потенциал каждого ученика через увлекательные турниры по школьным предметам. Наша онлайн платформа создана для того, чтобы вдохновлять и поддерживать молодых умов в их учебных достижениях. Присоединяйтесь к нам и помогите создать будущее, где обучение - это не только эффективно, но и увлекательно!
           </p>
         </div>
       </div>

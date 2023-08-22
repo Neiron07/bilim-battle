@@ -16,8 +16,7 @@ export default function Nav() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userData");
+    localStorage.clear();
     setIsLoggedIn(false);
     setUserBalance(0);
   };
@@ -35,7 +34,6 @@ export default function Nav() {
       axios.get(`https://bilimjarys.online/identity/me`, { headers })
         .then(response => {
           if (response.status === 200) {
-            console.log(response);
             localStorage.setItem('userData', JSON.stringify(response.data));
             setUserBalance(response.data.user.balance);
           }
@@ -80,7 +78,7 @@ export default function Nav() {
           <Link to="/tournaments" className="menu-item">
             <FontAwesomeIcon icon={faGamepad} className="menu-item-icon" /> Турниры
           </Link>
-          <Link to="/tournaments" className="menu-item">
+          <Link to="https://api.whatsapp.com/send/?phone=77761788978&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5,%D0%BF%D0%B8%D1%88%D1%83_%D1%81_bilimjarys" className="menu-item">
             <FontAwesomeIcon icon={faLifeRing} className="menu-item-icon" /> Тех. поддержка
           </Link>
           {isLoggedIn ? (
