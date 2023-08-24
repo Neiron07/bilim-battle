@@ -25,7 +25,10 @@ export default function User() {
     <section style={{ paddingTop: 0 }}>
       <div className="user-hero">
         <div className="container flex-start">
-          <img src={userData.avatar || `https://robohash.org/smart`} alt="ava" />
+          <div className="user-avatar">
+            <img src={userData.avatar || `https://robohash.org/smart`} alt="ava" />
+            <h1>{userData.fullName}</h1>
+          </div>
           <div className="icons">
             <div className="icon status-icon">
               <FontAwesomeIcon icon={faCheckCircle} />

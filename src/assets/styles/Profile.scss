@@ -1,42 +1,39 @@
 /* USER PAGE */
   
 .user-hero {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url("https://cdn.vvvgamers.com/images/default_cover.jpg");
+  background-image: url(https://cdn.vvvgamers.com/images/default_cover.jpg);
   background-position: center;
   background-size: cover;
   width: 100%;
+  height: 22rem;
   margin-bottom: 40px;
-  position: relative; /* Добавлено для позиционирования псевдоэлемента */
-}
-.user-hero::before {
-    content: "";
-    position: absolute;
-    bottom: 0; /* Размещаем внизу контейнера */
-    left: 0;
-    width: 100%;
-    height: 20px; /* Высота градиента */
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-    z-index: 1; /* Помещаем псевдоэлемент под содержимое */
 }
   
-  img[alt="ava"] {
+  /* Remove the existing img[alt="ava"] styling */
+  .user-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center vertically */
+    margin-top: 100px;
+    text-align: center; /* Center the text horizontally */
+  }
+  
+  .user-avatar img {
     background-color: rgba(255, 255, 255, 0);
-    display: block;
-    margin: 0 auto;
     width: 210px;
     height: 210px;
-    border-radius: 50% ;
-    margin-bottom: 40px;
-    margin-top: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
     box-shadow: 0 5px 20px #bbb;
   }
   
-  .user-avatar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  .user-avatar h1 {
+    font-size: 24px;
+    color: #444;
   }
+  
+
   
   .icons {
     display: flex;
