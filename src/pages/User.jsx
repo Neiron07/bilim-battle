@@ -22,32 +22,35 @@ export default function User() {
   }, [params]);
 
   return (
-    <section>
-      <div className="container flex-start">
-        <img src={userData.avatar || `https://robohash.org/smart`} alt="ava" />
-        <div className="icons">
-          <div className="icon status-icon">
-            <FontAwesomeIcon icon={faCheckCircle} />
-            {userData.isBan}
+    <section style={{ paddingTop: 0 }}>
+      <div className="user-hero">
+        <div className="container flex-start">
+          <img src={userData.avatar || `https://robohash.org/smart`} alt="ava" />
+          <div className="icons">
+            <div className="icon status-icon">
+              <FontAwesomeIcon icon={faCheckCircle} />
+              {userData.isBan}
+            </div>
+            <div className="icon role-icon">
+              <FontAwesomeIcon icon={faUser} />
+              {userData.role}
+            </div>
+            <div className="icon rating-icon">
+              <FontAwesomeIcon icon={faStar} />
+              {userData.rating}
+            </div>
           </div>
-          <div className="icon role-icon">
-            <FontAwesomeIcon icon={faUser} />
-            {userData.role}
-          </div>
-          <div className="icon rating-icon">
-            <FontAwesomeIcon icon={faStar} />
-            {userData.rating}
-          </div>
-        </div>
 
-        <div className="info">
-          <h1>{userData.fullName}</h1>
-          <ul>
-            <li><b>Возраст:</b> {userData.age || 16}</li>
-            <li><b>Школа:</b> {userData.school || 'Не указано'}</li>
-          </ul>
+          <div className="info">
+            <h1>{userData.fullName}</h1>
+            <ul>
+              <li><b>Возраст:</b> {userData.age || 16}</li>
+              <li><b>Школа:</b> {userData.school || 'Не указано'}</li>
+            </ul>
+          </div>
         </div>
       </div>
+      <div style={{ height: "300px" }}></div>
     </section>
   );
 }

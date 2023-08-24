@@ -258,7 +258,7 @@ export default function Tournament() {
           <div className="rules">
             <h3>Правила</h3>
             <div className="horizontal-line"></div>
-            <p>{tournament.rules}</p>
+            <div dangerouslySetInnerHTML={{ __html: tournament.rules }} />
           </div>
           <div className="participants">
             <h3>Участники:</h3>
