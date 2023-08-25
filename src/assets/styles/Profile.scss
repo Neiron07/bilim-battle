@@ -1,98 +1,58 @@
-/* USER PAGE */
-  
 .user-hero {
   background-image: url(https://cdn.vvvgamers.com/images/default_cover.jpg);
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 22rem;
+  height: 25rem;
   margin-bottom: 40px;
-}
-  
-  /* Remove the existing img[alt="ava"] styling */
-  .user-avatar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center vertically */
-    margin-top: 100px;
-    text-align: center; /* Center the text horizontally */
-  }
-  
-  .user-avatar img {
-    background-color: rgba(255, 255, 255, 0);
-    width: 210px;
-    height: 210px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 20px #bbb;
-  }
-  
-  .user-avatar h1 {
-    font-size: 24px;
-    color: #444;
-  }
-  
 
-  
-  .icons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center; /* Center icons vertically */
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 40px;
-  }
-  
-  .icon {
-    /* text-align: center; */
-    padding: 16px;
-    border-radius: 10%;
-    width: 68px;
-    height: 68px;
-}
-  
-  .status-icon {
-    background-color: #ffcc00;
-  }
-  
-  .role-icon {
-    background-color: #33cc33;
-  }
-  
-  .rating-icon {
-    background-color: #3399ff;
-  }
-  
-  .icon svg {
-    width: 100%;
-    height: auto;
+  h1 {
+    margin-bottom: 60px;
+    margin-left: 30px;
+    font-size: 23px;
     color: white;
   }
-
-  
-  .info {
-    padding: 20px;
-    box-shadow: 0 2px 5px #ccc;
-    width: 60%;
-    border-radius: 10px;
-  
-    ul {
-      list-style: none;
-      margin-top: 30px;
-      font-size: 20px;
-      color: #444;
-  
-      li {
-        margin-top: 15px;
-        &:last-of-type {
-          font-size: 17px;
-        }
-      }
-    }
+  img {
+    background-color: rgba(255, 255, 255, 0);
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    box-shadow: 0 5px 20px #bbb;
   }
-
-section {
-    padding: 0px 0;
 }
-  
+
+.info {
+  padding: 20px 40px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+  border-radius: 20px;
+  margin-bottom: 4rem;
+  font-family: 'YourChosenFont', sans-serif;
+}
+
+.info-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  color: #444;
+}
+
+.info ul li {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin-top: 1rem;
+}
+
+.info ul li b {
+  font-weight: bold;
+  color: #3399ff;
+}

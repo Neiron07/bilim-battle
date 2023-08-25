@@ -1,8 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { faCheckCircle, faUser, faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './../assets/styles/Profile.scss';
 
 export default function User() {
@@ -24,31 +22,27 @@ export default function User() {
   return (
     <section style={{ paddingTop: 0 }}>
       <div className="user-hero">
-        <div className="container flex-start">
-          <div className="user-avatar">
-            <img src={userData.avatar || `https://robohash.org/smart`} alt="ava" />
-            <h1>{userData.fullName}</h1>
-          </div>
-          <div className="icons">
-            <div className="icon status-icon">
-              <FontAwesomeIcon icon={faCheckCircle} />
-              {userData.isBan}
-            </div>
-            <div className="icon role-icon">
-              <FontAwesomeIcon icon={faUser} />
-              {userData.role}
-            </div>
-            <div className="icon rating-icon">
-              <FontAwesomeIcon icon={faStar} />
-              {userData.rating}
-            </div>
-          </div>
-
+        <div className="container" style={{ paddingTop: 100 }}>
+          <img src={userData.avatar || `https://robohash.org/smart%20students`} />
+          <h1>{userData.fullName} {userData.isBan ? '🔴' : '🟢'}</h1>
           <div className="info">
-            <h1>{userData.fullName}</h1>
+            <h3 className="info-title">About me</h3>
+            <div className="horizontal-line"></div>
             <ul>
-              <li><b>Возраст:</b> {userData.age || 16}</li>
-              <li><b>Школа:</b> {userData.school || 'Не указано'}</li>
+              <li>ID: <b>{userData._id}</b></li>
+              <li>Возраст: <b>{userData.age || 16}</b></li>
+              <li>Рейтинг: <b>{userData.rating}</b></li>
+              <li>Роль: <b>{userData.role}</b></li>
+              <li>
+                Участвует с{' '}
+                <b>
+                  {new Date(userData.createdAt).toLocaleString('ru-RU', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  })}
+                </b>
+              </li>
             </ul>
           </div>
         </div>
