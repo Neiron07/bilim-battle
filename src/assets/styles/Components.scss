@@ -56,9 +56,10 @@
 }
 
 .user-balance {
+  font-family: 'Didact Gothic', sans-serif;
   font-weight: bold;
   margin-right: -100px; /* Добавленный отступ справа */
-  color: #333; 
+  color: #2443ac !important;
 }
 
 .logo {
@@ -327,7 +328,7 @@ img[alt="avatar"] {
     box-shadow: 0 2px 10px #ccc;
 
     /* Изменим высоту карточки, чтобы она была достаточно высокой для вмещения картинки */
-    height: 350px;
+    height: 400px;
 
     /* Выравнивание содержимого по центру */
     display: flex;
@@ -356,6 +357,15 @@ img[alt="avatar"] {
       margin-top: 10px;
       font-size: 16px;
       line-height: 1.5;
+    }
+
+    li {
+      color: #555;
+      font-size: 17px;
+      /*display: inline-block;
+      margin-right: 15px;
+      margin-bottom: 6px;
+      font-family: monospace;*/
     }
 
     &:hover {
@@ -614,7 +624,7 @@ td:first-child {
   }
   .winner p {
     color: #0148BF;
-    font-size: 18px;
+    font-size: 20px;
     margin: 0;
   }
   .trophy-icon {

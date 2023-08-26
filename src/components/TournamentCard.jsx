@@ -11,6 +11,7 @@ function TournamentCard(props) {
           <img src={props.image || 'https://i.imgur.com/W5N1x8Z.jpg'} alt="tournament-mini" />
           <div className="tournament-info">
             <h3>{props.name}</h3>
+            <div className="horizontal-line"></div>
             <ul>
               <li>
                 <FontAwesomeIcon icon={faTrophy} /> {props.prize}

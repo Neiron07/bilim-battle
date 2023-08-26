@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGraduationCap, faBell, faCalendar, faStopwatch, faUsers, faBullseye, faVideo } from "@fortawesome/free-solid-svg-icons";
+import { faGraduationCap, faBell, faCalendar, faStopwatch, faUsers, faBullseye, faVideo, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Modal from "../components/Modal";
 
@@ -17,11 +17,15 @@ export default function Tournament() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [fieldErrors, setFieldErrors] = useState(false);
+  const [showClosedModal, setShowClosedModal] = useState(false);
+  const [showMaxPlayersModal, setShowMaxPlayersModal] = useState(false);
 
   const handleCloseModal = () => {
     setShowSuccessModal(false);
     setShowErrorModal(false);
     setFieldErrors(false);
+    setShowClosedModal(false);
+    setShowMaxPlayersModal(false); 
   };
   const handleParticipate = async () => {
     try {
@@ -55,13 +59,20 @@ export default function Tournament() {
         setParticipated(true);
       }
     } catch (error) {
-      if (error.response.data.error === 9){
+      console.log(error)
+      if (error.response.data.error === '9') {
         setShowErrorModal(true)
-      } 
-      if (error.response.data.error === 7){
+      }
+      if (error.response.data.error === '7') {
         localStorage.clear();
         setFieldErrors(true);
-      } 
+      }
+      if (error.response.data.error === '11') {
+        setShowClosedModal(true);
+      }
+      if (error.response.data.error === '12') {
+        setShowMaxPlayersModal(true);
+      }
     }
   };
 
@@ -78,6 +89,7 @@ export default function Tournament() {
         const tournamentResponse = await axios.get(`https://bilimjarys.online/tournaments/${params.id}`);
         setTournament(tournamentResponse.data.tournament);
         setLoading(false);
+        console.log(tournamentResponse.data.tournament)
       } catch (error) {
         setLoading(false);
         console.log(error);
@@ -166,6 +178,15 @@ export default function Tournament() {
               </div>
             </div>
             <div className="timeline-item">
+              <div className="timeline-icon"><FontAwesomeIcon icon={faMoneyBill} /></div>
+              <div className="timeline-content">
+                <p>
+                  Взнос: <strong>{tournament.entryFee}🟡 (jarys-coin)</strong>
+                </p>
+              </div>
+            </div>
+
+            <div className="timeline-item">
               <div className="timeline-icon"><FontAwesomeIcon icon={faCalendar} /></div>
               <div className="timeline-content">
                 <p>
@@ -177,7 +198,7 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faStopwatch} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Продолжительность:</strong> {tournament.duration}
+                  <strong>Время на выполнение:</strong> {tournament.duration}
                 </p>
               </div>
             </div>
@@ -241,7 +262,7 @@ export default function Tournament() {
                           ) : (
                             <img src={defaultAvatarURL} alt="Default Avatar" />
                           )}
-                          <Link to={`/user/${prize.winner}`}>
+                          <Link to={`/user/${prize.winner._id}`}>
                             <p>{prize.winner.fullName}</p>
                           </Link>
                         </div>
@@ -294,6 +315,14 @@ export default function Tournament() {
       <Modal isOpen={fieldErrors} onClose={handleCloseModal}>
         <h2>Ошибка!</h2>
         <p>Для участия в турнире Вы должны залогиниться на сайте!</p>
+      </Modal>
+      <Modal isOpen={showClosedModal} onClose={handleCloseModal}>
+        <h2>Турнир закрыт</h2>
+        <p>Извините, этот турнир закрыт для участия.</p>
+      </Modal>
+      <Modal isOpen={showMaxPlayersModal} onClose={handleCloseModal}>
+        <h2>Максимальное количество игроков</h2>
+        <p>Извините, максимальное количество игроков для этого турнира уже достигнуто.</p>
       </Modal>
     </section>
   );

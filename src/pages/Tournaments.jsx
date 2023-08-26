@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import TournamentCard from "../components/TournamentCard";
 import axios from "axios";
+import Loader from "../components/Loader";
 
 export default function Tournaments() {
   const [tournaments, setTournaments] = useState([]);
   const [tournamentStatus, setTournamentStatus] = useState("open"); // "open" или "closed"
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios(
       `https://bilimjarys.online/tournaments/all?state=${tournamentStatus}&lim=10`
     )
       .then((data) => {
         setTournaments(data.data.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -20,6 +22,10 @@ export default function Tournaments() {
 
   return (
     <section style={{ paddingTop: 0 }}>
+      {loading ? ( // Отобразите loader, если loading равен true
+        <Loader />
+      ) : (
+      <>
       <section id="tournament-hero">
         <div className="container">
           <div className="stained-text">
@@ -47,7 +53,6 @@ export default function Tournaments() {
         <div className="tournament-grid">
           {tournaments.map((tournament) => {
             const formattedDate = new Date(tournament.startDate).toLocaleString("ru-RU", {
-              year: "numeric",
               month: "long",
               day: "numeric",
               hour: "numeric",
@@ -70,6 +75,8 @@ export default function Tournaments() {
           })}
         </div>
       </div>
+      </>
+    )}
     </section>
   );
 }
