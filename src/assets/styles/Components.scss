@@ -164,12 +164,35 @@
   color: #fff;
   background-color: #0148BF;
   margin-top: 40px;
+  animation: fadeIn 1s ease-in-out; /* Добавляем анимацию fadeIn */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .hero-heading {
   color: #0148BF;
   font-size: 40px;
+  animation: slideInUp 1s ease-in-out; /* Добавляем анимацию slideInUp */
 }
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 .stained-text {
   max-width: 400px;
@@ -324,7 +347,7 @@ img[alt="avatar"] {
     padding: 15px;
     transition: all 0.3s;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #251349;
     box-shadow: 0 2px 10px #ccc;
 
     /* Изменим высоту карточки, чтобы она была достаточно высокой для вмещения картинки */
@@ -348,7 +371,7 @@ img[alt="avatar"] {
       font-size: 24px;
       margin: 10px 0; /* Добавьте небольшой отступ вниз и вверх для названия */
       font-weight: bold;
-      color: #007bff; /* Изменим цвет названия, чтобы оно выделялось */
+      color: white; /* Изменим цвет названия, чтобы оно выделялось */
     }
 
     ul {
@@ -360,7 +383,7 @@ img[alt="avatar"] {
     }
 
     li {
-      color: #555;
+      color: #9c9ba1;
       font-size: 17px;
       /*display: inline-block;
       margin-right: 15px;
@@ -588,20 +611,22 @@ td:first-child {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 10px;
+    background-color: #251349;
   }
   
   .prize {
     font-size: 18px;
-    color: #000;
+    color: white;
   }
   .prize p {
-    color: #0148BF;
+    color: gold;
     margin: 0;
   }
   .winner {
     display: flex;
     flex-direction: column; 
     align-items: left;
+    color: white;
     gap: 10px; /* Add some spacing between the avatar and winner info */
   }
   .winner img {
@@ -611,7 +636,7 @@ td:first-child {
   }
   .winner strong {
     font-size: 16px;
-    color: #333;
+    color: aliceblue;
     margin-top: 10px;
   }
   .winner-info {
@@ -623,7 +648,7 @@ td:first-child {
     margin-right: 10px;
   }
   .winner p {
-    color: #0148BF;
+    color: white;
     font-size: 20px;
     margin: 0;
   }
@@ -744,10 +769,11 @@ td:first-child {
   border-radius: 10px;
   border: 1px solid #ddd;
   margin-bottom: 30px;
+  background-color: #251349;
 }
 
 .timeline-icon {
-  color:#0148BF;
+  color:white;
   font-size: 24px;
   margin-right: 10px;
   width: 34px; /* Задайте желаемую ширину иконки */
@@ -762,7 +788,7 @@ td:first-child {
 }
 
 .timeline-content p {
-  color: #1368A4;
+  color: white;
   margin: 0;
 }
 

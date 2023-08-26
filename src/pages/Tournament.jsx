@@ -63,7 +63,7 @@ export default function Tournament() {
       if (error.response.data.error === '9') {
         setShowErrorModal(true)
       }
-      if (error.response.data.error === '7') {
+      if (error.response.data.error === 7) {
         localStorage.clear();
         setFieldErrors(true);
       }
@@ -115,7 +115,7 @@ export default function Tournament() {
     "https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Prescription01&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Tanned";
 
   return (
-    <section className="tournament">
+    <section className="tournament" style={{ backgroundColor: 'rgb(239, 247, 254)' }}>
       {loading ? ( // Отобразите loader, если loading равен true
         <Loader />
       ) : (
@@ -147,7 +147,7 @@ export default function Tournament() {
                       </button>
                     </div>
                     <div className="social-buttons">
-                      <a href="ссылка на ваш Instagram профиль" target="_blank" rel="noopener noreferrer">
+                      <a href="https://t.me/bilimjarys" target="_blank" rel="noopener noreferrer">
                         <button>Обсудить турнир</button>
                       </a>
                     </div>
@@ -295,8 +295,11 @@ export default function Tournament() {
               <ul>
                 {players.map((player, index) => (
                   <li key={index} className="player-item">
-                    <Link to={`/user/${player.player._id}`} className="player-link">
-                      <img src={player.player.avatar} alt="avatar" className="player-avatar" />
+                    <Link to={`/user/${player.player._id}`} className="player-link" style={{
+                          backgroundImage: player.player.cover ? `url(${player.player.avatar})` : `url('https://cybersport.metaratings.ru/storage/images/54/27/54279c66c3f46c5fbb9f91914eadb2e3.png')`,
+                          backgroundPosition: 'center',
+                        }}>
+                      <img src={player.player.avatar} alt="avatar" className="player-avatar" style={{}}/>
                       <div className="player-details">
                         <span className="player-name">{player.player.fullName}</span>
                         <span className="player-rating"> ({player.player.rating})</span>
