@@ -25,7 +25,7 @@ export default function Tournament() {
     setShowErrorModal(false);
     setFieldErrors(false);
     setShowClosedModal(false);
-    setShowMaxPlayersModal(false); 
+    setShowMaxPlayersModal(false);
   };
   const handleParticipate = async () => {
     try {
@@ -134,7 +134,12 @@ export default function Tournament() {
                   </div>
                   <div className="tournament-block">
                     <div className="tournament-date">
-                      <h2>{new Date(tournament.startDate).toLocaleDateString()}, Время: {new Date(tournament.startDate).toLocaleTimeString()}</h2>
+                      <h2>{new Date(tournament.startDate).toLocaleString("ru-RU", {
+                        month: "long",
+                        day: "numeric",
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}</h2>
                     </div>
                     <div className="participate-btn">
                       <button onClick={handleParticipate}>

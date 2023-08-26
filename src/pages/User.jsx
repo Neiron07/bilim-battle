@@ -20,7 +20,7 @@ export default function User() {
   }, [params]);
 
   return (
-    <section style={{ paddingTop: 0 }}>
+    <section style={{ backgroundColor: '#EFF7FE', paddingTop: 0 }}>
       <div className="user-hero">
         <div className="container" style={{ paddingTop: 100 }}>
           <img src={userData.avatar || `https://robohash.org/smart%20students`} />

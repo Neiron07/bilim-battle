@@ -481,7 +481,7 @@ td:first-child {
 
   .participate-btn button {
     padding: 12px 24px; /* Увеличиваем внутренние отступы для более приятного вида */
-    background-color: #4CAF50; /* Зеленый цвет кнопки */
+    background-color: #FF7556; /* Зеленый цвет кнопки */
     color: white;
     border: none;
     border-radius: 8px; /* Закругляем углы */
@@ -493,7 +493,7 @@ td:first-child {
   }
   
   .participate-btn button:hover {
-    background-color: #45a049; /* Темнее зеленый цвет при наведении */
+    background-color: #cc2500; /* Темнее зеленый цвет при наведении */
   }
 
   
@@ -659,6 +659,7 @@ td:first-child {
 
 .banner {
   background-size: cover;
+  background-color: #251349;
   background-position: center;
   border: 2px solid #ddd;
   border-radius: 10px;
@@ -694,7 +695,8 @@ td:first-child {
 }
 
 .tournament-title h2 {
-  color: #c31c1c;
+  color: white;
+  font-weight: 500;
   font-weight: bold;
   font-weight: bold;
   line-height: 48px;
@@ -703,7 +705,7 @@ td:first-child {
 }
 
 .tournament-id-copy h2 {
-  color: #DB3C34;
+  color: white;
   font-weight: bold;
   font-weight: bold;
   line-height: 48px;
@@ -713,7 +715,7 @@ td:first-child {
 
 
 .tournament-date h2 {
-  color: #DB3C34;
+  color: #9c9ba1;
   font-weight: bold;
   font-weight: bold;
   line-height: 48px;
@@ -722,7 +724,7 @@ td:first-child {
 }
 
 .tournament-id-copy span {
-  color: #DB3C34;
+  color: #9c9ba1;
   font-weight: bold;
   font-weight: bold;
   line-height: 48px;
@@ -823,6 +825,17 @@ td:first-child {
     align-items: flex-start;
   }
 
+  .tournament-id-copy h2 {
+    margin-top: 15px;
+    font-size: 30px;
+  }
+  .tournament-image {
+    display: none;
+  }
+
+  .social-buttons {
+    margin-bottom: 18px;
+  }
   .winner-info img {
     margin-right: 0;
     margin-bottom: 10px;
