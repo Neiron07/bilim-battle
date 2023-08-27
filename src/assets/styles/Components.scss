@@ -519,7 +519,22 @@ td:first-child {
     background-color: #cc2500; /* Темнее зеленый цвет при наведении */
   }
 
+  .tournament-btn button {
+    padding: 12px 24px; /* Увеличиваем внутренние отступы для более приятного вида */
+    background-color: #2DA87A; /* Зеленый цвет кнопки */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Закругляем углы */
+    cursor: pointer;
+    font-size: 15px; /* Немного увеличиваем размер шрифта */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+    width: 200px; /* Увеличиваем ширину кнопки */
+    margin-top: 10px; /* Добавляем небольшой верхний отступ */
+  }
   
+  .tournament-btn button:hover {
+    background-color: #013521; /* Темнее зеленый цвет при наведении */
+  }
   .social-buttons button {
     width: 800px;
     padding: 12px 24px; /* Увеличиваем внутренние отступы для более приятного вида */
@@ -859,7 +874,7 @@ td:first-child {
     display: none;
   }
 
-  .social-buttons {
+  .tournament-btn {
     margin-bottom: 18px;
   }
   .winner-info img {

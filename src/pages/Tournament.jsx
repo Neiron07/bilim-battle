@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap, faBell, faCalendar, faStopwatch, faUsers, faBullseye, faVideo, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Modal from "../components/Modal";
+import Timer from "../components/Timer";
 
 export default function Tournament() {
   const params = useParams();
@@ -77,11 +78,12 @@ export default function Tournament() {
   };
 
   useEffect(() => {
-    const initialParticipation = localStorage.getItem('participationStatus');
-    if (initialParticipation) {
-      setParticipated(JSON.parse(initialParticipation)[params.id] === true);
-    }
-  }, [params.id]);
+    const playerId = localStorage.getItem('id');
+    const isParticipant = players.some(player => player.player._id === playerId);
+  
+    setParticipated(isParticipant);
+  }, [players]);
+  
 
   useEffect(() => {
     const fetchTournamentData = async () => {
@@ -134,12 +136,7 @@ export default function Tournament() {
                   </div>
                   <div className="tournament-block">
                     <div className="tournament-date">
-                      <h2>{new Date(tournament.startDate).toLocaleString("ru-RU", {
-                        month: "long",
-                        day: "numeric",
-                        hour: "numeric",
-                        minute: "numeric",
-                      })}</h2>
+                      <Timer targetDate={tournament.startDate} />
                     </div>
                     <div className="participate-btn">
                       <button onClick={handleParticipate}>
@@ -151,6 +148,14 @@ export default function Tournament() {
                         <button>Обсудить турнир</button>
                       </a>
                     </div>
+                    <div className="tournament-btn">
+                      {participated && tournament.extra_data && tournament.extra_data.link && (
+                        <a href={tournament.extra_data.link} target="_blank" rel="noopener noreferrer">
+                          <button>Перейти к заданиям</button>
+                        </a>
+                      )}
+                    </div>
+
                   </div>
                 </div>
               </aside>
@@ -195,7 +200,12 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faCalendar} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Дата и время:</strong> {new Date(tournament.startDate).toLocaleDateString()}, Время: {new Date(tournament.startDate).toLocaleTimeString()}
+                  <strong>Дата и время:</strong> {new Date(tournament.startDate).toLocaleString("ru-RU", {
+                        month: "long",
+                        day: "numeric",
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}{""}
                 </p>
               </div>
             </div>
@@ -296,10 +306,10 @@ export default function Tournament() {
                 {players.map((player, index) => (
                   <li key={index} className="player-item">
                     <Link to={`/user/${player.player._id}`} className="player-link" style={{
-                          backgroundImage: player.player.cover ? `url(${player.player.avatar})` : `url('https://cybersport.metaratings.ru/storage/images/54/27/54279c66c3f46c5fbb9f91914eadb2e3.png')`,
-                          backgroundPosition: 'center',
-                        }}>
-                      <img src={player.player.avatar} alt="avatar" className="player-avatar" style={{}}/>
+                      backgroundImage: player.player.cover ? `url(${player.player.cover})` : null,
+                      backgroundPosition: 'center',
+                    }}>
+                      <img src={player.player.avatar} alt="avatar" className="player-avatar" style={{}} />
                       <div className="player-details">
                         <span className="player-name">{player.player.fullName}</span>
                         <span className="player-rating"> ({player.player.rating})</span>
