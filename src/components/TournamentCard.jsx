@@ -14,7 +14,7 @@ function TournamentCard(props) {
             <div className="horizontal-line"></div>
             <ul>
               <li>
-                <FontAwesomeIcon icon={faTrophy} /> {props.prize}
+                <FontAwesomeIcon icon={faTrophy} /> {props.prize} призовых места
               </li>
               <li>
                 <FontAwesomeIcon icon={faUserGraduate} /> {props.grade}
@@ -23,7 +23,7 @@ function TournamentCard(props) {
                 <FontAwesomeIcon icon={faCalendarAlt} /> {props.date} Астана
               </li>
               <li>
-                <FontAwesomeIcon icon={faUsers} /> {props.count_players} игроков
+                <FontAwesomeIcon icon={faUsers} /> {props.count_players}/{props.maxPlayers} игроков
               </li>
             </ul>
           </div>
@@ -42,7 +42,8 @@ TournamentCard.propTypes = {
   image: PropTypes.string,
   date: PropTypes.string,
   count_players: PropTypes.number, // Добавили новый prop для количества игроков
-  state: PropTypes.string
+  state: PropTypes.string,
+  maxPlayers: PropTypes.number
 };
 
 export default TournamentCard;

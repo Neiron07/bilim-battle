@@ -64,12 +64,13 @@ export default function Tournaments() {
                 key={tournament._id}
                 id={tournament._id}
                 name={tournament.name}
-                prize={tournament.prizePool}
+                prize={tournament.prizeDistribution.length}
                 grade={tournament.class}
                 image={tournament.image}
                 date={formattedDate}
                 count_players={tournament.numberOfPlayers}
                 state={tournament.state}
+                maxPlayers={tournament.maxPlayers}
               />
             );
           })}
