@@ -347,7 +347,7 @@ img[alt="avatar"] {
     padding: 15px;
     transition: all 0.3s;
     border-radius: 10px;
-    background-color: #251349;
+    background: linear-gradient(to bottom left, #2443ac, #651818);
     box-shadow: 0 2px 10px #ccc;
 
     /* Изменим высоту карточки, чтобы она была достаточно высокой для вмещения картинки */
@@ -530,6 +530,7 @@ td:first-child {
     transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
     width: 200px; /* Увеличиваем ширину кнопки */
     margin-top: 10px; /* Добавляем небольшой верхний отступ */
+    margin-bottom: 18px;
   }
   
   .tournament-btn button:hover {
@@ -588,7 +589,7 @@ td:first-child {
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
-    background-color: var(--player-background-color, #f0f0f0);
+    background-color: var(--player-background-color, #101e3b);
     border-radius: 8px;
   }
   
@@ -626,7 +627,7 @@ td:first-child {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 10px;
-    background-color: #251349;
+    background-color: #101e3b;
   }
   
   .prize {
@@ -699,6 +700,7 @@ td:first-child {
 
 .banner {
   background-size: cover;
+  background-image: url('https://img.freepik.com/premium-vector/modern-dark-blue-background-with-abstract-shape-dynamic-and-sport-banner-concept_249611-272.jpg');
   background-color: #251349;
   background-position: center;
   border: 2px solid #ddd;
@@ -784,7 +786,7 @@ td:first-child {
   border-radius: 10px;
   border: 1px solid #ddd;
   margin-bottom: 30px;
-  background-color: #251349;
+  background-color: #101e3b;
 }
 
 .timeline-icon {
