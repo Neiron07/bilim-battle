@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faUser, faGamepad, faLifeRing } from '@fortawesome/free-solid-svg-icons';
-
+import Modal from "../components/Modal";
 
 export default function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userBalance, setUserBalance] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isBan, setIsBan] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -36,6 +37,7 @@ export default function Nav() {
           if (response.status === 200) {
             localStorage.setItem('userData', JSON.stringify(response.data));
             setUserBalance(response.data.user.balance);
+            setIsBan(response.data.user.isBan)
           }
         })
         .catch(error => {
@@ -45,6 +47,7 @@ export default function Nav() {
   }, []);
 
   return (
+    <>
     <nav className="navbar">
       <div className="logo-container">
         <Link to="/">
@@ -89,5 +92,10 @@ export default function Nav() {
         </div>
       )}
     </nav>
+    <Modal isOpen={isBan} onClose={false}>
+      <h2>Вы были забанены на платформе Bilim Jarys!</h2>
+      <p>Вы имеете право подать аппеляцию, написав письмо на почту <b>bilimjarys@gmail.com</b></p>
+    </Modal>
+    </>
   );
 }
