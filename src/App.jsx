@@ -19,7 +19,6 @@ import SEO from "./components/SEO";
 export default function App() {
   return (
     <BrowserRouter>
-      <SEO/>
       <ScrollToTop />
       <Nav/>
       <Pages/>
