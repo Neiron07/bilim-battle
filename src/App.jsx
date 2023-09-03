@@ -14,11 +14,12 @@ import ScrollToTop from "./scrollTop";
 import "./assets/styles/Main.scss";
 
 // SEO
-import "./components/SEO";
+import SEO from "./components/SEO";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <SEO/>
       <ScrollToTop />
       <Nav/>
       <Pages/>
