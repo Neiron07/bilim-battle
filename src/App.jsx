@@ -13,6 +13,8 @@ import ScrollToTop from "./scrollTop";
 // Main styles
 import "./assets/styles/Main.scss";
 
+// SEO
+import "./components/SEO";
 
 export default function App() {
   return (
