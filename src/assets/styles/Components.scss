@@ -270,9 +270,9 @@ img[alt="avatar"] {
 }
 
 #tournament-hero {
-  background-image: url('/public/banner4.jpg');
-  background-size: cover;
-  background-position: revert;
+  background-image: url('/public/banner8.jpg');
+  background-size: contain;
+  background-position: right;
   padding: 80px 0;
   text-align: center;
   color: #fff;
@@ -1034,8 +1034,12 @@ footer {
 
 @media (max-width: 900px) {
   /* Адаптация стилей для устройств с максимальной шириной экрана 900px */
-  #tournament-hero h1 {
-    font-size: 36px; /* Уменьшим размер заголовка на главной странице */
+  #tournament-hero {
+    background-size: cover;
+    background-position: right;
+    h1 {
+      font-size: 36px; /* Уменьшим размер заголовка на главной странице */
+    }
   }
 }
 
