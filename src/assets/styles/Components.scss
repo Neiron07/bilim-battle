@@ -270,6 +270,36 @@ img[alt="avatar"] {
   margin-left: 0px;
 }
 
+/* Стили для .custom-select */
+.custom-select {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  outline: auto;
+  background-color: #fff;
+  box-shadow: 0 2px 10px #ccc;
+  width: -webkit-fill-available;
+  margin-top: 20px;
+  appearance: none;
+  background-image: url("path-to-custom-arrow-icon.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Стили при наведении */
+.custom-select:hover {
+  background-color: #f5f5f5;
+}
+
+/* Стили при активном состоянии (когда выпадающий список открыт) */
+.custom-select:active, .custom-select:focus {
+  border-color: #007bff;
+}
+
+
 #tournament-hero {
   background-image: url('/public/banner8.jpg');
   background-size: contain;

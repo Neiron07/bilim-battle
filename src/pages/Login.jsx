@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Modal from "../components/Modal";
-//import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [fullName, setFullName] = useState("");
@@ -12,9 +12,12 @@ export default function Login() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  //const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false);
+  const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false);
 
 
+  function onChange() {
+    setIsCaptchaSuccess(true)
+  }
   const validateFields = (fields) => {
     const errors = {};
 
@@ -53,6 +56,13 @@ export default function Login() {
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
+
+    if (!isCaptchaSuccessful) {
+      // Если капча не пройдена, предотвратить отправку
+      setShowErrorModal(true);
+      setErrorMessage("Подтвердите, что вы не робот.");
+      return;
+    }
 
     const errors = validateFields({
       fullName,
@@ -150,13 +160,24 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <input
-              type="number"
-              placeholder="Класс"
+            <select
               value={age}
               onChange={(e) => setAge(e.target.value)}
               required
-            />
+              className="custom-select"
+            >
+              <option value="" disabled>
+                Выберите класс
+              </option>
+              <option value="5">Ученик 5 класса</option>
+              <option value="6">Ученик 6 класса</option>
+              <option value="7">Ученик 7 класса</option>
+              <option value="8">Ученик 8 класса</option>
+              <option value="9">Ученик 9 класса</option>
+              <option value="10">Ученик 10 класса</option>
+              <option value="11">Ученик 11 класса</option>
+              <option value="0">Родитель</option>
+            </select>
             <input
               type="text"
               placeholder="Школа"
@@ -170,6 +191,11 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+            />
+            <div className="horizontal-line"></div>
+            <ReCAPTCHA
+              sitekey="6Ld18QQoAAAAAG1zR4M7avomJlI17MjD5bSySYhT"
+              onChange={onChange}
             />
             <button className="join">Зарегистрироваться</button>
           </form>
