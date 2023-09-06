@@ -138,7 +138,7 @@ export default function Login() {
           <form onSubmit={handleSignupSubmit}>
             <input
               type="text"
-              placeholder="Фамилие и имя"
+              placeholder="ФИО"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               required
@@ -152,7 +152,7 @@ export default function Login() {
             />
             <input
               type="number"
-              placeholder="Возраст"
+              placeholder="Класс"
               value={age}
               onChange={(e) => setAge(e.target.value)}
               required
