@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import Modal from "../components/Modal";
 import ReCAPTCHA from "react-google-recaptcha";
+import { GoogleReCaptchaProvider,
+  GoogleReCaptcha } from 'react-google-recaptcha-v3';
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [fullName, setFullName] = useState("");
@@ -15,7 +18,7 @@ export default function Login() {
   const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false);
 
 
-  function onChange() {
+  function handleVerify() {
     setIsCaptchaSuccess(true)
   }
   const validateFields = (fields) => {
@@ -193,10 +196,9 @@ export default function Login() {
               required
             />
             <div className="horizontal-line"></div>
-            <ReCAPTCHA
-              sitekey="6Ld18QQoAAAAAG1zR4M7avomJlI17MjD5bSySYhT"
-              onChange={onChange}
-            />
+            <GoogleReCaptchaProvider reCaptchaKey="6Ld08QQoAAAAAF8UOG-TokXU7AfG-R-vt7lGVN2d">
+              <GoogleReCaptcha onVerify={handleVerify} />
+            </GoogleReCaptchaProvider>,
             <button className="join">Зарегистрироваться</button>
           </form>
         )}

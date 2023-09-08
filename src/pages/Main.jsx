@@ -35,14 +35,14 @@ export default function Main() {
         <div className="horizontal-line"></div>
         <Carousel autoPlay infiniteLoop showArrows={false} showStatus={false}>
           <div>
-            <img src={heroMain} alt="banner-1" />
+            <img src='https://i.imgur.com/ltrA7rJ.jpg' alt="banner-1" />
           </div>
           {/* Добавьте другие баннеры сюда */}
           <div>
-            <img src={heroMain} alt="banner-2" />
+            <img src='https://i.imgur.com/fC767Ml.jpg' alt="banner-2" />
           </div>
           <div>
-            <img src={heroMain} alt="banner-3" />
+            <img src='https://i.imgur.com/Yag9lSR.jpg' alt="banner-3" />
           </div>
         </Carousel>
         <div className="horizontal-line"></div>
