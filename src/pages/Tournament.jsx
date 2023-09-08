@@ -58,6 +58,9 @@ export default function Tournament() {
         localStorage.setItem('participationStatus', JSON.stringify(storedParticipation));
         setShowSuccessModal(true);
         setParticipated(true);
+        setTimeout(function() {
+          location.reload();
+        }, 2000);
       }
     } catch (error) {
       console.log(error)

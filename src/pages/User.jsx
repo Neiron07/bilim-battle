@@ -30,7 +30,7 @@ export default function User() {
             <div className="horizontal-line"></div>
             <ul>
               <li>ID: <b>{userData._id}</b></li>
-              <li>Возраст: <b>{userData.age || 16}</b></li>
+              <li>Класс: <b>{userData.age || 16}</b></li>
               <li>Рейтинг: <b>{userData.rating}</b></li>
               <li>Роль: <b>{userData.role}</b></li>
               <li>
