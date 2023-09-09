@@ -40,14 +40,21 @@ export default function Footer() {
         <div className="col">
           <h2>Контакты</h2>
           <p>
-            bilimjarys@gmail.com<br /><br />
-            8 701 536 90 40
+            Электронная почта: bilimjarys@gmail.com<br /><br />
+            Телефон: 8 701 536 90 40
+          </p>
+          <p>
+            <a href="https://docs.google.com/document/d/1y6NIbUcGny4S92d7oEb40-3o6OjuiBWXYjwJdQLn6nk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'underline' }}>Пользовательское соглашение</a>
+            <br /><br />
+            <a href="https://docs.google.com/document/d/1zf8sXhWOylNG8Y6IbibwvKiqOwWTyEqjnRICKEr-ZmM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'underline' }}>Политика конфиденциальности</a>
           </p>
         </div>
+
+
         <div className="col">
           <h2>О нас</h2>
           <p>
-          Мы - команда энтузиастов, объединенных целью раскрыть потенциал каждого ученика через увлекательные турниры по школьным предметам. Наша онлайн платформа создана для того, чтобы вдохновлять и поддерживать молодых умов в их учебных достижениях. Присоединяйтесь к нам и помогите создать будущее, где обучение - это не только эффективно, но и увлекательно!
+            Мы - команда энтузиастов, объединенных целью раскрыть потенциал каждого ученика через увлекательные турниры по школьным предметам. Наша онлайн платформа создана для того, чтобы вдохновлять и поддерживать молодых умов в их учебных достижениях. Присоединяйтесь к нам и помогите создать будущее, где обучение - это не только эффективно, но и увлекательно!
           </p>
         </div>
       </div>
