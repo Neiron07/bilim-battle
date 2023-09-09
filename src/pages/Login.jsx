@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import Modal from "../components/Modal";
 import ReCAPTCHA from "react-google-recaptcha";
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -199,6 +198,12 @@ export default function Login() {
               sitekey="6LcI5gwoAAAAAA2g0MZSLIQY-DyEBo2Z8iEw5MGZ"
               onChange={onChange}
             />
+            <div className="terms">
+              <p style={{ fontSize: 'smaller' }}>
+                <span style={{ fontWeight: 'bold' }}>Примечание:</span> При регистрации на нашем сайте, вы сразу же соглашаетесь с нашими условиями использования.
+                Пожалуйста, ознакомьтесь с нашим <a href="https://docs.google.com/document/d/1y6NIbUcGny4S92d7oEb40-3o6OjuiBWXYjwJdQLn6nk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}>Пользовательским соглашением</a> и <a href="https://docs.google.com/document/d/1zf8sXhWOylNG8Y6IbibwvKiqOwWTyEqjnRICKEr-ZmM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}>Политикой использования файлов cookie</a>, а также с нашими правилами Честной игры.
+              </p>
+            </div>
             <button className="join">Зарегистрироваться</button>
           </form>
         )}
