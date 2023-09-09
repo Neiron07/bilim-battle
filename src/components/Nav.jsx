@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faUser, faGamepad, faLifeRing } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faUser, faGamepad, faLifeRing, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import Modal from "../components/Modal";
 
 export default function Nav() {
@@ -97,7 +97,10 @@ export default function Nav() {
             <Link to="/tournaments" className="menu-item">
               <FontAwesomeIcon icon={faGamepad} className="menu-item-icon" /> Турниры
             </Link>
-            <Link to="https://api.whatsapp.com/send/?phone=77761788978&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5,%D0%BF%D0%B8%D1%88%D1%83_%D1%81_bilimjarys" className="menu-item">
+            <Link to="/faq" className="menu-item">
+              <FontAwesomeIcon icon={faQuestionCircle} className="menu-item-icon" /> FAQ
+            </Link>
+            <Link to="https://t.me/bjsupport_bot" className="menu-item">
               <FontAwesomeIcon icon={faLifeRing} className="menu-item-icon" /> Тех. поддержка
             </Link>
             {isLoggedIn ? (

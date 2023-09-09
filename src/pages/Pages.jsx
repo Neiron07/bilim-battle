@@ -6,12 +6,14 @@ import Tournament from "./Tournament";
 import Tournaments from "./Tournaments";
 import Login from "./Login";
 import User from "./User";
+import Faq from "./FAQ";
 // import ProfilePage from "./NewDesignUser";
 
 export default function Pages() {
     return (
         <Routes>
             <Route path="/" element={<Main/>}/>
+            <Route path="/faq" element={<Faq/>}/>
             <Route path="/tournaments" element={<Tournaments/>}/>
             <Route path="/tournaments/:id" element={<Tournament/>}/>
             <Route path="/user/:id" element={<User/>}/>

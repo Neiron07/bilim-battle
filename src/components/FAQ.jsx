@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Faq from 'react-faq-component';
 
 const data = {
-    title: "",
+    title: "FAQ",
     rows: [
         {
             title: "Как зарегистрироваться на онлайн-олимпиады?",
@@ -41,7 +41,7 @@ const data = {
 
 const styles = {
     //bgColor: 'white',
-    titleTextColor: "blue",
+    titleTextColor: "#0148BF",
     rowTitleColor: "#0148BF",
     rowContentColor: 'grey',
     rowContentTextSize: '17px',
