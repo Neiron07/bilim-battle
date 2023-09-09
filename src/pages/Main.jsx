@@ -33,16 +33,21 @@ export default function Main() {
           </Link>
         </div>
         <div className="horizontal-line"></div>
-        <Carousel autoPlay infiniteLoop showArrows={false} showStatus={false}>
+        <Carousel autoPlay infiniteLoop dynamicHeight interval={4500}  showArrows={false} showStatus={false} onClickItem={()=> window.location.href = 'https://bilimjarys.vercel.app/tournaments'}>
           <div>
-            <img src='https://i.imgur.com/ltrA7rJ.jpg' alt="banner-1" />
-          </div>
-          {/* Добавьте другие баннеры сюда */}
-          <div>
-            <img src='https://i.imgur.com/fC767Ml.jpg' alt="banner-2" />
+            <img src='https://wmpics.space/di-R21C.png' alt="banner-1" />
           </div>
           <div>
-            <img src='https://i.imgur.com/Yag9lSR.jpg' alt="banner-3" />
+            <img src='https://wmpics.space/di-VYOD.png' alt="banner-2" />
+          </div>
+          <div>
+            <img src='https://wmpics.space/di-5GQ0.png' alt="banner-3" />
+          </div>
+          <div>
+            <img src='https://wmpics.space/di-R6VK.png' alt="banner-4" />
+          </div>
+          <div>
+            <img src='https://wmpics.space/di-80M0.png' alt="banner-5" />
           </div>
         </Carousel>
         <div className="horizontal-line"></div>

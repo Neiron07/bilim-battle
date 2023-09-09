@@ -938,10 +938,13 @@ td:first-child {
     margin-top: 15px;
     font-size: 30px;
   }
-  .tournament-image {
-    display: none;
+  .tournament-information {
+    flex-direction: column-reverse;
   }
 
+  .tournament-image {
+    justify-content: center;
+  }
   .tournament-btn {
     margin-bottom: 18px;
   }
