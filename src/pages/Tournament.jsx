@@ -120,7 +120,7 @@ export default function Tournament() {
     "https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Prescription01&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Tanned";
 
   return (
-    <section className="tournament" style={{ backgroundColor: 'rgb(239, 247, 254)' }}>
+    <section className="tournament" style={{ backgroundColor: 'lavender' }}>
       {loading ? ( // Отобразите loader, если loading равен true
         <Loader />
       ) : (
