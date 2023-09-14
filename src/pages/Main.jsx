@@ -33,7 +33,7 @@ export default function Main() {
           </Link>
         </div>
         <div className="horizontal-line"></div>
-        <Carousel autoPlay infiniteLoop dynamicHeight interval={4500}  showArrows={false} showStatus={false} onClickItem={()=> window.location.href = 'https://bilimjarys.vercel.app/tournaments'}>
+        <Carousel autoPlay infiniteLoop dynamicHeight interval={6000}  showArrows={false} showStatus={false} onClickItem={()=> window.location.href = 'https://bilimjarys.vercel.app/tournaments'}>
           <div>
             <img src='https://wmpics.space/di-R21C.png' alt="banner-1" />
           </div>
