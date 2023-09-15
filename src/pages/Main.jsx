@@ -16,6 +16,7 @@ import {
   faGraduationCap,
   faDna
 } from "@fortawesome/free-solid-svg-icons";
+import { Trans } from 'react-i18next';
 import FAQ from "../components/FAQ";
 
 export default function Main() {
@@ -24,10 +25,8 @@ export default function Main() {
       <div className="container">
         <div className="stained-text" style={{ paddingBottom: 40 }}>
           <h1 className="hero-heading">BILIM JARYS</h1>
-          <p>
-            Присоединяйтесь к захватывающим призовым онлайн-турнирам по школьным предметам на платформе BILIM JARYS! Участвуйте в соревнованиях с учениками из разных уголков страны, докажите свои знания и выигрывайте ценные призы.
-          </p>
-          <p>Зарегистрируйтесь сегодня и получите - 1000 очков рейтинга!</p>
+          <p><Trans i18nKey="MainInfo" /></p>
+          <p><Trans i18nKey="joinButton" /></p>
           <Link to="/tournaments">
             <button className="join">Исследовать</button>
           </Link>
