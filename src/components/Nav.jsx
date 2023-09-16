@@ -82,7 +82,7 @@ export default function Nav() {
         </div>
         {isMenuOpen && (
           <div className="menu">
-            <Link to={isLoggedIn ? `/user/${localStorage.getItem("id")}` : "/login"} className="menu-item">
+            <Link to={isLoggedIn ? `/user/${localStorage.getItem("id")}` : "/login"} className="menu-item" onClick={toggleMenu}>
               {isLoggedIn ? (
                 <>
                   <FontAwesomeIcon icon={faUser} className="menu-item-icon" /> <b>Мой аккаунт</b>
@@ -94,13 +94,13 @@ export default function Nav() {
               )}
             </Link>
             <div className="horizontal-liner"></div>
-            <Link to="/tournaments" className="menu-item">
+            <Link to="/tournaments" className="menu-item" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faGamepad} className="menu-item-icon" /> Турниры
             </Link>
-            <Link to="/faq" className="menu-item">
-              <FontAwesomeIcon icon={faQuestionCircle} className="menu-item-icon" /> FAQ
+            <Link to="/faq" className="menu-item" onClick={toggleMenu}>
+              <FontAwesomeIcon icon={faQuestionCircle} className="menu-item-icon"/> FAQ
             </Link>
-            <Link to="https://t.me/bjsupport_bot" className="menu-item">
+            <Link to="https://t.me/bjsupport_bot" className="menu-item" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faLifeRing} className="menu-item-icon" /> Тех. поддержка
             </Link>
             {isLoggedIn ? (
