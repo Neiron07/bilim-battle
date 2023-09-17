@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrophy, faUserGraduate, faCalendarAlt, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { Trans } from 'react-i18next';
 
 function TournamentCard(props) {
   return (
@@ -14,7 +15,7 @@ function TournamentCard(props) {
             <div className="horizontal-line"></div>
             <ul>
               <li>
-                <FontAwesomeIcon icon={faTrophy} /> {props.prize} призовых места
+                <FontAwesomeIcon icon={faTrophy} /> {props.prize} <Trans i18nKey="PrizeCount" />
               </li>
               <li>
                 <FontAwesomeIcon icon={faUserGraduate} /> {props.grade}
@@ -23,7 +24,7 @@ function TournamentCard(props) {
                 <FontAwesomeIcon icon={faCalendarAlt} /> {props.date} Астана
               </li>
               <li>
-                <FontAwesomeIcon icon={faUsers} /> {props.count_players}/{props.maxPlayers} игроков
+                <FontAwesomeIcon icon={faUsers} /> {props.count_players}/{props.maxPlayers} <Trans i18nKey="PlayersCount" />
               </li>
             </ul>
           </div>

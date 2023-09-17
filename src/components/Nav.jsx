@@ -3,17 +3,29 @@ import { Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faUser, faGamepad, faLifeRing, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faUser, faGamepad, faLifeRing, faQuestionCircle, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import Modal from "../components/Modal";
+import { Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userBalance, setUserBalance] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isBan, setIsBan] = useState(false);
-
+  const currentLanguage = localStorage.getItem('language')
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleLanguage = () => {
+    // Определяем новый язык на основе текущего
+    const newLanguage = currentLanguage === 'kz' ? 'ru' : 'kz';
+
+    // Меняем язык с помощью i18n.changeLanguage
+    i18n.changeLanguage(newLanguage);
+    localStorage.setItem('language', newLanguage);
+    location.reload();
   };
 
   const handleLogout = () => {
@@ -47,6 +59,7 @@ export default function Nav() {
   }, []);
 
   const navRef = useRef(null);
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     const handleDocumentClick = (e) => {
@@ -85,27 +98,32 @@ export default function Nav() {
             <Link to={isLoggedIn ? `/user/${localStorage.getItem("id")}` : "/login"} className="menu-item" onClick={toggleMenu}>
               {isLoggedIn ? (
                 <>
-                  <FontAwesomeIcon icon={faUser} className="menu-item-icon" /> <b>Мой аккаунт</b>
+                  <FontAwesomeIcon icon={faUser} className="menu-item-icon" /> <b><Trans i18nKey="MyAccountNav" /></b>
                 </>
               ) : (
                 <>
-                  <FontAwesomeIcon icon={faUser} className="menu-item-icon" /> <b>Войти</b>
+                  <FontAwesomeIcon icon={faUser} className="menu-item-icon" /> <b><Trans i18nKey="Login" /></b>
                 </>
               )}
             </Link>
             <div className="horizontal-liner"></div>
             <Link to="/tournaments" className="menu-item" onClick={toggleMenu}>
-              <FontAwesomeIcon icon={faGamepad} className="menu-item-icon" /> Турниры
+              <FontAwesomeIcon icon={faGamepad} className="menu-item-icon" /> <Trans i18nKey="TournamentsNav" />
             </Link>
             <Link to="/faq" className="menu-item" onClick={toggleMenu}>
-              <FontAwesomeIcon icon={faQuestionCircle} className="menu-item-icon"/> FAQ
+              <FontAwesomeIcon icon={faQuestionCircle} className="menu-item-icon" /> <Trans i18nKey="FAQNav" />
             </Link>
             <Link to="https://t.me/bjsupport_bot" className="menu-item" onClick={toggleMenu}>
-              <FontAwesomeIcon icon={faLifeRing} className="menu-item-icon" /> Тех. поддержка
+              <FontAwesomeIcon icon={faLifeRing} className="menu-item-icon" /> <Trans i18nKey="SupportNav" />
             </Link>
+            <div className="horizontal-liner"></div>
+            <div className="menu-item" onClick={toggleLanguage}>
+              <FontAwesomeIcon icon={faGlobe} className="menu-item-icon" /> <Trans i18nKey="lang" /> {localStorage.getItem('language') === 'kz' ? 'KZ' : 'RU'}
+            </div>
+            <div className="horizontal-liner"></div>
             {isLoggedIn ? (
               <Link to="/" className="menu-item" onClick={handleLogout}>
-                <FontAwesomeIcon icon={faSignOutAlt} className="menu-item-icon" /> Выйти с аккаунта
+                <FontAwesomeIcon icon={faSignOutAlt} className="menu-item-icon" /> <Trans i18nKey="SignOutNav" />
               </Link>
             ) : null}
           </div>

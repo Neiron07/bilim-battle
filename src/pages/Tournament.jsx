@@ -8,6 +8,7 @@ import { faGraduationCap, faBell, faCalendar, faStopwatch, faUsers, faBullseye, 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Modal from "../components/Modal";
 import Timer from "../components/Timer";
+import { Trans } from 'react-i18next';
 
 export default function Tournament() {
   const params = useParams();
@@ -58,7 +59,7 @@ export default function Tournament() {
         localStorage.setItem('participationStatus', JSON.stringify(storedParticipation));
         setShowSuccessModal(true);
         setParticipated(true);
-        setTimeout(function() {
+        setTimeout(function () {
           location.reload();
         }, 2000);
       }
@@ -83,10 +84,10 @@ export default function Tournament() {
   useEffect(() => {
     const playerId = localStorage.getItem('id');
     const isParticipant = players.some(player => player.player._id === playerId);
-  
+
     setParticipated(isParticipant);
   }, [players]);
-  
+
 
   useEffect(() => {
     const fetchTournamentData = async () => {
@@ -94,7 +95,6 @@ export default function Tournament() {
         const tournamentResponse = await axios.get(`https://bilimjarys.online/tournaments/${params.id}`);
         setTournament(tournamentResponse.data.tournament);
         setLoading(false);
-        console.log(tournamentResponse.data.tournament)
       } catch (error) {
         setLoading(false);
         console.log(error);
@@ -143,18 +143,18 @@ export default function Tournament() {
                     </div>
                     <div className="participate-btn">
                       <button onClick={handleParticipate}>
-                        {participated ? "Вы уже участвуете в турнире" : "Участвовать"}
+                        {participated ? <Trans i18nKey="YetParticipate" /> : <Trans i18nKey="Participate" />}
                       </button>
                     </div>
                     <div className="social-buttons">
                       <a href="https://t.me/bilimjarys" target="_blank" rel="noopener noreferrer">
-                        <button>Обсудить турнир</button>
+                        <button><Trans i18nKey="DiscussTournament" /></button>
                       </a>
                     </div>
                     <div className="tournament-btn">
                       {participated && tournament.extra_data && tournament.extra_data.link && (
                         <a href={tournament.extra_data.link} target="_blank" rel="noopener noreferrer">
-                          <button>Перейти к заданиям</button>
+                          <button><Trans i18nKey="GotoTasks" /></button>
                         </a>
                       )}
                     </div>
@@ -170,7 +170,7 @@ export default function Tournament() {
           {/* Tournament Timeline */}
 
           <div className="infor">
-            <h3>Информация</h3>
+            <h3><Trans i18nKey="Information" /></h3>
           </div>
           <div className="horizontal-line"></div>
           <div className="timeline">
@@ -178,7 +178,7 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faGraduationCap} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Класс:</strong> {tournament.class}
+                  <strong><Trans i18nKey="Class" />:</strong> {tournament.class}
                 </p>
               </div>
             </div>
@@ -186,7 +186,7 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faBell} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Статус:</strong> {tournament.state}
+                  <strong><Trans i18nKey="Status" />:</strong> {tournament.state}
                 </p>
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faMoneyBill} /></div>
               <div className="timeline-content">
                 <p>
-                  Взнос: <strong>{tournament.entryFee}🟡 (jarys-coin)</strong>
+                  <Trans i18nKey="Fee" />: <strong>{tournament.entryFee}🟡 (jarys-coin)</strong>
                 </p>
               </div>
             </div>
@@ -203,12 +203,12 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faCalendar} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Дата и время:</strong> {new Date(tournament.startDate).toLocaleString("ru-RU", {
-                        month: "long",
-                        day: "numeric",
-                        hour: "numeric",
-                        minute: "numeric",
-                      })}{""}
+                  <strong><Trans i18nKey="DataAndTime" />:</strong> {new Date(tournament.startDate).toLocaleString("ru-RU", {
+                    month: "long",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                  })}{""}
                 </p>
               </div>
             </div>
@@ -216,7 +216,7 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faStopwatch} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Время на выполнение:</strong> {tournament.duration}
+                  <strong><Trans i18nKey="TimeToComplete" />:</strong> {tournament.duration}
                 </p>
               </div>
             </div>
@@ -224,7 +224,7 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faUsers} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Количество участников:</strong> Мин: {tournament.minPlayers}, Макс: {tournament.maxPlayers}
+                  <strong><Trans i18nKey="NumberOfParticipants" />:</strong> Мин: {tournament.minPlayers}, Макс: {tournament.maxPlayers}
                 </p>
               </div>
             </div>
@@ -232,7 +232,7 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faBullseye} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Режим турнира:</strong> {tournament.tournamentType}
+                  <strong><Trans i18nKey="TournamentMode" />:</strong> {tournament.tournamentType}
                 </p>
               </div>
             </div>
@@ -240,13 +240,13 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faVideo} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Видео-чат:</strong> {tournament.videoChat ? "Обязательно" : "Необязательно"}
+                  <strong>Видео-чат:</strong> {tournament.videoChat ? <Trans i18nKey="Necessarily" /> : <Trans i18nKey="NoNecessarily" />}
                 </p>
               </div>
             </div>
           </div>
           <div className="prizes">
-            <h3>Награды за турнир</h3>
+            <h3><Trans i18nKey="PrizeTournament" /></h3>
             <div className="horizontal-line"></div>
             <div className="prizes-grid">
               {/* Conditional check for tournament.prizeDistribution */}
@@ -269,11 +269,11 @@ export default function Tournament() {
                       </div>
                     )}
                     <div className="prize">
-                      <strong>{`${index + 1} место:`} <p>{prize.prize}</p></strong>
+                      <strong>{`${index + 1} `}<Trans i18nKey="Place" /> <p>{prize.prize}</p></strong>
                     </div>
                     {prize.winner ? (
                       <div className="winner">
-                        <strong>Победитель:</strong>
+                        <strong><Trans i18nKey="Winner" />:</strong>
                         <div className="winner-info">
                           {prize.winner.avatar ? (
                             <img src={prize.winner.avatar} alt={prize.winner} />
@@ -288,22 +288,22 @@ export default function Tournament() {
                       </div>
 
                     ) : (
-                      <div className="winner">Будет решено..</div>
+                      <div className="winner"><Trans i18nKey="WillBeDecided" /></div>
                     )}
                   </div>
                 ))}
             </div>
           </div>
           <div className="rules">
-            <h3>Правила</h3>
+            <h3><Trans i18nKey="Rules" /></h3>
             <div className="horizontal-line"></div>
             <div dangerouslySetInnerHTML={{ __html: tournament.rules }} />
           </div>
           <div className="participants">
-            <h3>Участники:</h3>
+            <h3><Trans i18nKey="Players" />:</h3>
             <div className="horizontal-line"></div>
             {players.length === 0 ? (
-              <p>Пока нет зарегистрировавшихся</p>
+              <p><Trans i18nKey="NoPlayers" /></p>
             ) : (
               <ul>
                 {players.map((player, index) => (
@@ -326,7 +326,7 @@ export default function Tournament() {
         </>
       )}
       <Modal isOpen={showSuccessModal} onClose={handleCloseModal}>
-        <h2>Успешно!</h2>
+        <h2><Trans i18nKey="Success" /></h2>
         <p>Вы успешно зарегистрировались на турнир!</p>
       </Modal>
       <Modal isOpen={showErrorModal} onClose={handleCloseModal}>
@@ -334,7 +334,7 @@ export default function Tournament() {
         <p>Вы уже участвуете в турнире!</p>
       </Modal>
       <Modal isOpen={fieldErrors} onClose={handleCloseModal}>
-        <h2>Ошибка!</h2>
+        <h2><Trans i18nKey="Error" /></h2>
         <p>Для участия в турнире Вы должны залогиниться на сайте!</p>
       </Modal>
       <Modal isOpen={showClosedModal} onClose={handleCloseModal}>

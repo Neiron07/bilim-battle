@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-key */
 import { useState } from "react";
 import axios from "axios";
 import Modal from "../components/Modal";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -14,7 +17,7 @@ export default function Login() {
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false);
-
+  
 
   function onChange() {
     setIsCaptchaSuccess(true)
@@ -86,7 +89,6 @@ export default function Login() {
         age: age,
         school: school,
       });
-      console.log(res)
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("id", res.data.user._id);
       setShowSuccessModal(true);
@@ -108,6 +110,8 @@ export default function Login() {
     setShowErrorModal(false);
     setErrorMessage("");
   };
+
+  const { t } = useTranslation();
   return (
     <section id="auth">
       <div className="container">
@@ -116,13 +120,13 @@ export default function Login() {
             className={activeTab === "login" ? "active" : ""}
             onClick={() => setActiveTab("login")}
           >
-            Войти
+            <Trans i18nKey="SignUp" />
           </p>
           <p
             className={activeTab === "register" ? "active" : ""}
             onClick={() => setActiveTab("register")}
           >
-            Регистрация
+            <Trans i18nKey="LogIn" />
           </p>
         </div>
         {activeTab === "login" ? (
@@ -142,7 +146,7 @@ export default function Login() {
               required
             />
             <button className="join" type="submit">
-              Войти
+              <Trans i18nKey="SignUp" />
             </button>
           </form>
         ) : (
@@ -168,20 +172,20 @@ export default function Login() {
               className="custom-select"
             >
               <option value="" disabled>
-                Выберите класс
+                <Trans i18nKey="ChooseClass" />
               </option>
-              <option value="5">Ученик 5 класса</option>
-              <option value="6">Ученик 6 класса</option>
-              <option value="7">Ученик 7 класса</option>
-              <option value="8">Ученик 8 класса</option>
-              <option value="9">Ученик 9 класса</option>
-              <option value="10">Ученик 10 класса</option>
-              <option value="11">Ученик 11 класса</option>
-              <option value="0">Родитель</option>
+              <option value="5"><Trans i18nKey="Class1" /></option>
+              <option value="6"><Trans i18nKey="Class2" /></option>
+              <option value="7"><Trans i18nKey="Class3" /></option>
+              <option value="8"><Trans i18nKey="Class4" /></option>
+              <option value="9"><Trans i18nKey="Class5" /></option>
+              <option value="10"><Trans i18nKey="Class6" /></option>
+              <option value="11"><Trans i18nKey="Class7" /></option>
+              <option value="0"><Trans i18nKey="Parents" /></option>
             </select>
             <input
               type="text"
-              placeholder="Школа"
+              placeholder={t('School')}
               value={school}
               onChange={(e) => setSchool(e.target.value)}
               required
@@ -200,20 +204,20 @@ export default function Login() {
             />
             <div className="terms">
               <p style={{ fontSize: 'smaller' }}>
-                <span style={{ fontWeight: 'bold' }}>Примечание:</span> При регистрации на нашем сайте, вы сразу же соглашаетесь с нашими условиями использования.
-                Пожалуйста, ознакомьтесь с нашим <a href="https://docs.google.com/document/d/1y6NIbUcGny4S92d7oEb40-3o6OjuiBWXYjwJdQLn6nk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}>Пользовательским соглашением</a> и <a href="https://docs.google.com/document/d/1zf8sXhWOylNG8Y6IbibwvKiqOwWTyEqjnRICKEr-ZmM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}>Политикой использования файлов cookie</a>, а также с нашими правилами Честной игры.
+                <span style={{ fontWeight: 'bold' }}><Trans i18nKey="warning" />:</span> <Trans i18nKey="warningText1" />
+                <Trans i18nKey="warningText2" components={[<a href='https://docs.google.com/document/d/1y6NIbUcGny4S92d7oEb40-3o6OjuiBWXYjwJdQLn6nk/edit?usp=sharing' target='_blank' rel='noopener noreferrer' style={{ color: 'blue' }} />, <a href='https://docs.google.com/document/d/1zf8sXhWOylNG8Y6IbibwvKiqOwWTyEqjnRICKEr-ZmM/edit?usp=sharing' target='_blank' rel='noopener noreferrer' style={{ color: 'blue' }} />]} />
               </p>
             </div>
-            <button className="join">Зарегистрироваться</button>
+            <button className="join"><Trans i18nKey="LogIn" /></button>
           </form>
         )}
       </div>
       <Modal isOpen={showSuccessModal} onClose={handleCloseModal}>
-        <h2>Успешно!</h2>
+        <h2><Trans i18nKey="Success" /></h2>
         <p>Вы успешно авторизовались!</p>
       </Modal>
       <Modal isOpen={showErrorModal} onClose={handleCloseModal}>
-        <h2>Ошибка!</h2>
+        <h2><Trans i18nKey="Error" /></h2>
         <p>{errorMessage}</p>
       </Modal>
     </section>

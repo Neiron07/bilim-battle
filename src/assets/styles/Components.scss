@@ -64,6 +64,20 @@
 
 
 /* Nav.css */
+.language-selector {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.language-button {
+  align-items: center;
+  padding: 5px 10px;
+  background: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
 
 .navbar {
   position: sticky;
@@ -156,6 +170,7 @@
   text-decoration: none;
   color: #333;
   transition: background-color 0.3s;
+  font-weight: 100px;
 }
 
 .menu-item-icon {
@@ -691,6 +706,7 @@ td:first-child {
   }
   
   .prize-item {
+    text-align: center;
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 10px;

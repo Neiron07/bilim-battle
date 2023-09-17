@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import TournamentCard from "../components/TournamentCard";
 import axios from "axios";
 import Loader from "../components/Loader";
+import { Trans } from 'react-i18next';
 
 export default function Tournaments() {
   const [tournaments, setTournaments] = useState([]);
@@ -29,9 +30,9 @@ export default function Tournaments() {
       <section id="tournament-hero">
         <div className="container">
           <div className="stained-text">
-            <h1 className="heading">Найди свое</h1>
+            <h1 className="heading"><Trans i18nKey="findMe" /></h1>
             <p>
-              На нашей платформе вы можете принять участие в разных турнирах и соревноваться с другими участниками по всей стране и с любой точки в стране
+              <Trans i18nKey="findMeInfo" />
             </p>
           </div>
         </div>
@@ -45,8 +46,8 @@ export default function Tournaments() {
               value={tournamentStatus}
               onChange={(e) => setTournamentStatus(e.target.value)}
             >
-              <option value="open">Открытые</option>
-              <option value="closed">Завершенные</option>
+              <option value="open"><Trans i18nKey="Open" /></option>
+              <option value="closed"><Trans i18nKey="Close" /></option>
             </select>
           </form>
         </main>

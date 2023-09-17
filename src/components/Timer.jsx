@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { Trans } from 'react-i18next';
 // eslint-disable-next-line react/prop-types
 const CountdownTimer = ({ targetDate }) => {
   const calculateTimeLeft = () => {
@@ -32,7 +32,7 @@ const CountdownTimer = ({ targetDate }) => {
 
   return (
     <h2>
-      Начало через: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+      <Trans i18nKey="StartIn" />: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
     </h2>
   );
 };

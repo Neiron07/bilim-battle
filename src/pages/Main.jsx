@@ -26,9 +26,9 @@ export default function Main() {
         <div className="stained-text" style={{ paddingBottom: 40 }}>
           <h1 className="hero-heading">BILIM JARYS</h1>
           <p><Trans i18nKey="MainInfo" /></p>
-          <p><Trans i18nKey="joinButton" /></p>
+          <p><Trans i18nKey="JoinMain" /></p>
           <Link to="/tournaments">
-            <button className="join">Исследовать</button>
+            <button className="join"><Trans i18nKey="MainButton" /></button>
           </Link>
         </div>
         <div className="horizontal-line"></div>
@@ -53,7 +53,7 @@ export default function Main() {
 
         {/* Блок "Турниры по школьным предметам" */}
         <div className="school-subjects">
-          <h2>Турниры по школьным предметам</h2>
+          <h2><Trans i18nKey="MainSubjectsTournaments" /></h2>
           <Link to="/tournaments">
           <div className="timeline">
             <div className="timeline-item" style={{ background: "#0148BF" }}>
@@ -117,7 +117,7 @@ export default function Main() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faHistory} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>История Казахстана</strong>
+                  <strong><Trans i18nKey="KazHistory" /></strong>
                 </p>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function Main() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faBook} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Русский язык</strong>
+                  <strong><Trans i18nKey="RussianLang" /></strong>
                 </p>
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function Main() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faLanguage} /></div>
               <div className="timeline-content">
                 <p>
-                  <strong>Английский язык</strong>
+                  <strong><Trans i18nKey="EnglishLang" /></strong>
                 </p>
               </div>
             </div>
@@ -143,13 +143,13 @@ export default function Main() {
 
         {/* Блок "Формат участия" */}
         <div className="participation-format">
-          <h2>Формат участия</h2>
+          <h2><Trans i18nKey="FormatParticipation" /></h2>
           <img src={format} style={{ maxWidth: "100%" }} />
         </div>
 
         {/* Раздел FAQ */}
         <div className="faq">
-          <h2>Часто задаваемые вопросы</h2>
+          <h2><Trans i18nKey="FAQ" /></h2>
           <FAQ />
         </div>
       </div>

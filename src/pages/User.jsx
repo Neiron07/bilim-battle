@@ -11,7 +11,6 @@ export default function User() {
     let userID = params.id;
     axios(`https://bilimjarys.online/identity/profile/${userID}`)
       .then((data) => {
-        console.log(data.data.user)
         setUserData(data.data.user);
       })
       .catch((err) => {

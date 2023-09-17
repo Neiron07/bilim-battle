@@ -4,6 +4,9 @@ import { initReactI18next } from 'react-i18next';
 import translationKZ from './../lang/kz.json';
 import translationRU from './../lang/ru.json';
 
+const savedLanguage = localStorage.getItem('language');
+const defaultLanguage = savedLanguage || 'kz'
+
 i18n
   .use(initReactI18next)
   .init({
@@ -15,7 +18,7 @@ i18n
         translation: translationRU,
       },
     },
-    lng: 'ru', // Установите начальный язык
+    lng: defaultLanguage, // Установите начальный язык
     fallbackLng: 'ru', // Язык по умолчанию, если перевод для текущего языка отсутствует
     interpolation: {
       escapeValue: false, // Не экранировать HTML и React-компоненты
