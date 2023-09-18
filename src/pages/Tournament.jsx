@@ -326,24 +326,24 @@ export default function Tournament() {
         </>
       )}
       <Modal isOpen={showSuccessModal} onClose={handleCloseModal}>
-        <h2><Trans i18nKey="Success" /></h2>
-        <p>Вы успешно зарегистрировались на турнир!</p>
+        <h2><Trans i18nKey="Done" /></h2>
+        <p><Trans i18nKey="SuccessTour" /></p>
       </Modal>
       <Modal isOpen={showErrorModal} onClose={handleCloseModal}>
         <h2>Уведомление!</h2>
-        <p>Вы уже участвуете в турнире!</p>
+        <p><Trans i18nKey="Notification" /></p>
       </Modal>
       <Modal isOpen={fieldErrors} onClose={handleCloseModal}>
         <h2><Trans i18nKey="Error" /></h2>
-        <p>Для участия в турнире Вы должны залогиниться на сайте!</p>
+        <p><Trans i18nKey="Error9" /></p>
       </Modal>
       <Modal isOpen={showClosedModal} onClose={handleCloseModal}>
         <h2>Турнир закрыт</h2>
-        <p>Извините, этот турнир закрыт для участия.</p>
+        <p><Trans i18nKey="TournamentClose" /></p>
       </Modal>
       <Modal isOpen={showMaxPlayersModal} onClose={handleCloseModal}>
         <h2>Максимальное количество игроков</h2>
-        <p>Извините, максимальное количество игроков для этого турнира уже достигнуто.</p>
+        <p><Trans i18nKey="MaxUsers" /></p>
       </Modal>
     </section>
   );
