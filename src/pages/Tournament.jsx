@@ -194,7 +194,7 @@ export default function Tournament() {
               <div className="timeline-icon"><FontAwesomeIcon icon={faMoneyBill} /></div>
               <div className="timeline-content">
                 <p>
-                  <Trans i18nKey="Fee" />: <strong>{tournament.entryFee}🟡 (jarys-coin)</strong>
+                  <Trans i18nKey="Fee" />: <strong>{tournament.entryFee}🟡 (J-coin)</strong>
                 </p>
               </div>
             </div>

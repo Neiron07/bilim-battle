@@ -84,7 +84,7 @@ export default function Nav() {
           </Link>
         </div>
         {isLoggedIn && (
-          <span className="user-balance">Баланс: <strong>{userBalance} 🟡</strong></span>
+          <span className="user-balance">Баланс: <strong>{userBalance} <Link to={"/faq"} style={{color:'gold'}}>J-coin</Link></strong></span>
         )}
         <div className="menu-toggle" onClick={toggleMenu}>
           <div className={`menu-icon ${isMenuOpen ? "open" : ""}`}>
