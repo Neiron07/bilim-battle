@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
 import heroMain from "../assets/img/banner.png";
-import format from "../assets/img/format.png";
+import format from "../assets/img/format2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFlask,
