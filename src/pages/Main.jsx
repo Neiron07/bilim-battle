@@ -34,19 +34,22 @@ export default function Main() {
         <div className="horizontal-line"></div>
         <Carousel autoPlay infiniteLoop dynamicHeight interval={6000}  showArrows={false} showStatus={false} onClickItem={()=> window.location.href = 'https://bilimjarys.vercel.app/tournaments'}>
           <div>
-            <img src='https://wmpics.space/di-R21C.png' alt="banner-1" />
+            <img src='https://wmpics.space/di-9RNL.png' alt="banner-1" />
           </div>
           <div>
-            <img src='https://wmpics.space/di-VYOD.png' alt="banner-2" />
+            <img src='https://wmpics.space/di-W9BY.png' alt="banner-2" />
           </div>
           <div>
-            <img src='https://wmpics.space/di-5GQ0.png' alt="banner-3" />
+            <img src='https://wmpics.space/di-Z4NL.png' alt="banner-3" />
           </div>
           <div>
-            <img src='https://wmpics.space/di-R6VK.png' alt="banner-4" />
+            <img src='https://wmpics.space/di-HS7M.png' alt="banner-4" />
           </div>
           <div>
-            <img src='https://wmpics.space/di-80M0.png' alt="banner-5" />
+            <img src='https://wmpics.space/di-1H40.png' alt="banner-5" />
+          </div>
+          <div>
+            <img src='https://wmpics.space/di-SFNP.png' alt="banner-6" />
           </div>
         </Carousel>
         <div className="horizontal-line"></div>
