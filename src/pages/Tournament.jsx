@@ -271,6 +271,7 @@ export default function Tournament() {
                     <div className="prize">
                       <strong>{`${index + 1} `}<Trans i18nKey="Place" /> <p>{prize.prize}</p></strong>
                     </div>
+                    <div className="horizontal-line"></div>
                     {prize.winner ? (
                       <div className="winner">
                         <strong><Trans i18nKey="Winner" />:</strong>
