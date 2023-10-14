@@ -34,6 +34,11 @@ export default function Tournament() {
     setShowClosedModal(false);
     setShowMaxPlayersModal(false);
   };
+
+  const LoginCloseModal = () => {
+    setFieldErrors(false);
+    window.location.assign("/login")
+  }
   const handleParticipate = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -338,7 +343,7 @@ export default function Tournament() {
         <h2>Уведомление!</h2>
         <p><Trans i18nKey="Notification" /></p>
       </Modal>
-      <Modal isOpen={fieldErrors} onClose={handleCloseModal}>
+      <Modal isOpen={fieldErrors} onClose={LoginCloseModal} text="Тiркелу" >
         <h2><Trans i18nKey="Error" /></h2>
         <p><Trans i18nKey="Error9" /></p>
       </Modal>

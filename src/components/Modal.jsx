@@ -13,7 +13,7 @@ export default function Modal(props) {
             <div className="modal-content">
               {props.children}
               <button className="close-button" onClick={props.onClose}>
-                <Trans i18nKey="CloseModal" />
+                {props.text ? <Trans i18nKey="Register" /> : <Trans i18nKey="CloseModal" />}
               </button>
             </div>
           </div>
