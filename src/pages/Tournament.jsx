@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap, faBell, faCalendar, faStopwatch, faUsers, faBullseye, faVideo, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Modal from "../components/Modal";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Timer from "../components/Timer";
 import { Trans } from 'react-i18next';
 
@@ -21,7 +22,11 @@ export default function Tournament() {
   const [fieldErrors, setFieldErrors] = useState(false);
   const [showClosedModal, setShowClosedModal] = useState(false);
   const [showMaxPlayersModal, setShowMaxPlayersModal] = useState(false);
-
+  const breadcrumbs = [
+    { label: "Главная", path: "/" },
+    { label: <Trans i18nKey="TournamentsNav" />, path: "/tournaments" }, // Замените на реальные маршруты
+    { label: tournament.name, path: `/tournaments/${params.id}` }, // Замените на реальные маршруты
+  ];
   const handleCloseModal = () => {
     setShowSuccessModal(false);
     setShowErrorModal(false);
@@ -125,6 +130,7 @@ export default function Tournament() {
         <Loader />
       ) : (
         <>
+          <Breadcrumbs crumbs={breadcrumbs} style={{ marginBottom: "19px" }} /> {/* Добавьте компонент хлебных крошек здесь */}
           <div className="banner">
             <div className="tournament-information">
               <aside className="tournament-name"> {/* Изменено на aside */}
@@ -169,9 +175,7 @@ export default function Tournament() {
           </div>
           {/* Tournament Timeline */}
 
-          <div className="infor">
-            <h3><Trans i18nKey="Information" /></h3>
-          </div>
+
           <div className="horizontal-line"></div>
           <div className="timeline">
             <div className="timeline-item">

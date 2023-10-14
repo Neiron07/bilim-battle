@@ -34,22 +34,22 @@ export default function Main() {
         <div className="horizontal-line"></div>
         <Carousel autoPlay infiniteLoop dynamicHeight interval={6000}  showArrows={false} showStatus={false} onClickItem={()=> window.location.href = 'https://bilimjarys.kz/tournaments'}>
           <div>
-            <img src='https://wmpics.space/di-9RNL.png' alt="banner-1" />
+            <img src='https://wmpics.space/di-9RNL.png' alt="banner-1" style={{ borderRadius: '20px' }}/>
           </div>
           <div>
-            <img src='https://wmpics.space/di-W9BY.png' alt="banner-2" />
+            <img src='https://wmpics.space/di-W9BY.png' alt="banner-2" style={{ borderRadius: '20px' }}/>
           </div>
           <div>
-            <img src='https://wmpics.space/di-Z4NL.png' alt="banner-3" />
+            <img src='https://wmpics.space/di-Z4NL.png' alt="banner-3" style={{ borderRadius: '20px' }}/>
           </div>
           <div>
-            <img src='https://wmpics.space/di-HS7M.png' alt="banner-4" />
+            <img src='https://wmpics.space/di-HS7M.png' alt="banner-4" style={{ borderRadius: '20px' }}/>
           </div>
           <div>
-            <img src='https://wmpics.space/di-1H40.png' alt="banner-5" />
+            <img src='https://wmpics.space/di-1H40.png' alt="banner-5" style={{ borderRadius: '20px' }}/>
           </div>
           <div>
-            <img src='https://wmpics.space/di-SFNP.png' alt="banner-6" />
+            <img src='https://wmpics.space/di-SFNP.png' alt="banner-6" style={{ borderRadius: '20px' }}/>
           </div>
         </Carousel>
         <div className="horizontal-line"></div>

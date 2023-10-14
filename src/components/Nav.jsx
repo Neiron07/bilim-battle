@@ -7,7 +7,7 @@ import { faSignOutAlt, faUser, faGamepad, faLifeRing, faQuestionCircle, faGlobe 
 import Modal from "../components/Modal";
 import { Trans } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
-
+import jcoin from './../../public/j-coin.png'
 export default function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userBalance, setUserBalance] = useState(0);
@@ -84,7 +84,19 @@ export default function Nav() {
           </Link>
         </div>
         {isLoggedIn && (
-          <span className="user-balance">Баланс: <strong>{userBalance} <Link to={"/faq"} style={{color:'gold'}}>🟡</Link></strong></span>
+          <span className="user-balance">
+            Баланс: <strong>
+              <Link to="/faq" style={{ color: '#0148BF' }}>
+                {userBalance} </Link>
+              <img
+                  src={jcoin}
+                  alt="Бонусная монета"
+                  width="25"
+                  height="25"
+                  className="coin-icon"
+                />
+            </strong>
+          </span>
         )}
         <div className="menu-toggle" onClick={toggleMenu}>
           <div className={`menu-icon ${isMenuOpen ? "open" : ""}`}>
