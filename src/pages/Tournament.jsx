@@ -310,7 +310,7 @@ export default function Tournament() {
             <div dangerouslySetInnerHTML={{ __html: tournament.rules }} />
           </div>
           <div className="participants">
-            <h3><Trans i18nKey="Players" />:</h3>
+            <h3><Trans i18nKey="Players" /></h3>
             <div className="horizontal-line"></div>
             {players.length === 0 ? (
               <p><Trans i18nKey="NoPlayers" /></p>
