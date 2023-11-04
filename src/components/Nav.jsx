@@ -119,7 +119,7 @@ export default function Nav() {
               )}
             </Link>
             <div className="horizontal-liner"></div>
-            <Link to="/tournaments" className="menu-item" onClick={toggleMenu}>
+            <Link to="/tournaments" className="menu-item-1" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faGamepad} className="menu-item-icon" /> <Trans i18nKey="TournamentsNav" />
             </Link>
             <Link to="/faq" className="menu-item" onClick={toggleMenu}>
