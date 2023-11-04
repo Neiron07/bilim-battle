@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faUser, faGamepad, faLifeRing, faQuestionCircle, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faUser, faGamepad, faLifeRing, faQuestionCircle, faGlobe, faStore } from '@fortawesome/free-solid-svg-icons';
 import Modal from "../components/Modal";
 import { Trans } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
@@ -121,6 +121,9 @@ export default function Nav() {
             <div className="horizontal-liner"></div>
             <Link to="/tournaments" className="menu-item-1" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faGamepad} className="menu-item-icon" /> <Trans i18nKey="TournamentsNav" />
+            </Link>
+            <Link to="/store" className="menu-item-2" onClick={toggleMenu}>
+              <FontAwesomeIcon icon={faStore} className="menu-item-icon" /> <Trans i18nKey="StoreNav" />
             </Link>
             <Link to="/faq" className="menu-item" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faQuestionCircle} className="menu-item-icon" /> <Trans i18nKey="FAQNav" />

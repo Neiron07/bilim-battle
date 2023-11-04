@@ -4,6 +4,7 @@ import {Routes, Route} from "react-router-dom";
 import Main from "./Main";
 import Tournament from "./Tournament";
 import Tournaments from "./Tournaments";
+import Store from "./Store"
 import Login from "./Login";
 import User from "./User";
 import Faq from "./FAQ";
@@ -15,6 +16,7 @@ export default function Pages() {
             <Route path="/" element={<Main/>}/>
             <Route path="/faq" element={<Faq/>}/>
             <Route path="/tournaments" element={<Tournaments/>}/>
+            <Route path="/store" element={<Store/>}/>
             <Route path="/tournaments/:id" element={<Tournament/>}/>
             <Route path="/user/:id" element={<User/>}/>
             <Route path="/login" element={<Login/>}/>
