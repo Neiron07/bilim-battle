@@ -2,13 +2,14 @@ import { useState } from "react";
 import ProductCard from "../components/ProductCard"; // Создайте компонент ProductCard для отображения товаров
 import { Trans } from 'react-i18next';
 import { Carousel } from "react-responsive-carousel";
+import Modal from "../components/Modal";
 
 export default function Shop() {
     const [products, setProducts] = useState([
         {
-            id: 0,
-            name: "Iphone 15 Pro Max",
-            price: 70000,
+            id: 0, // здесь меняешь id с возрастанием
+            name: "Iphone 15 Pro Max",  // название товара
+            price: 70000,  // цена 
             image: "https://fmobile.kz/_next/image?url=https%3A%2F%2Fapi.fmobile.kz%2Fimage%2F%2Fmedia%2Fsale%2Fimage%2F265306_1v%202022-09-26_11-29-42.062220%20c4b2bdde8e48a96c4a261614.jpg&w=828&q=100",
         },
         {
@@ -31,7 +32,7 @@ export default function Shop() {
         },
         {
             id: 5,
-            name: "Путевка в Дубай с Айхой",
+            name: "Путевка в Дубай",
             price: 999,
             image: "https://happy-travel.kz/upload/userfiles/images/dubai-iz-shymkenta.jpg",
         },
@@ -59,6 +60,23 @@ export default function Shop() {
         const updatedCart = cart.filter((product) => product.id !== productId);
         setCart(updatedCart);
     };
+
+    const handleCheckout = () => {
+        const user = localStorage.getItem("id"); // Получите ID пользователя из localStorage (предполагается, что он уже сохранен там)
+        if (!user) {
+            // Если ID пользователя отсутствует в localStorage
+            alert("Вы должны авторизоваться, чтобы оформить заказ.");
+            return;
+        }
+    
+        const selectedProducts = cart.map((product) => `${product.name} (${product.price}🏵)`).join(", "); // Формируем список выбранных товаров
+    
+        const message = `Мой id: ${user}\n\nХочу купить: ${selectedProducts}`;
+    
+        const whatsappURL = `https://api.whatsapp.com/send/?phone=77761788978&text=${encodeURIComponent(message)}`;
+    
+        window.location.href = whatsappURL;
+    };    
 
     const totalCost = cart.reduce((total, product) => total + product.price, 0);
 
@@ -97,6 +115,8 @@ export default function Shop() {
                         </ul>
                     )}
                     <p>Итоговая стоимость: {totalCost}🏵</p>
+                    <div className="horizontal-line"></div>
+                    <button onClick={handleCheckout}>Оформить заказ</button>
                 </div>
             </div>
         </section>
