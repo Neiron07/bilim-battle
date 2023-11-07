@@ -27,13 +27,13 @@ export default function Shop() {
         {
             id: 8, //
             name: "Мышка игровая проводная USB Logitech G102 LIGHTSYNC, White",  // название товара
-            price: 16000,  // цена 
+            price: 14000,  // цена 
             image: `https://www.technodom.kz/_next/image?url=https%3A%2F%2Fapi.technodom.kz%2Ff3%2Fapi%2Fv1%2Fimages%2F800%2F800%2F219498_1.jpg&w=3840&q=85`
         },
         {
             id:9, //
             name: "Игровая клавиатура HyperX Alloy Origins 60 Pink, Red Switch",  // название товара
-            price:55000,  // цена 
+            price:53000,  // цена 
             image: "https://itmag.kz/upload/iblock/24/03/product_image_73803_1194999.webp",
         },
         {
@@ -45,7 +45,7 @@ export default function Shop() {
         {
             id: 11, //
             name: "Наушники Apple AirPods",  // название товара
-            price:87990,  // цена 
+            price:75990,  // цена 
             image: "https://images.satu.kz/204942604_w640_h640_naushniki-air-pods.jpg",
         },
         {
