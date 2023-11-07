@@ -103,7 +103,7 @@ export default function Shop() {
             <div className="container">
             <Carousel showThumbs={false} autoPlay infiniteLoop dynamicHeight interval={6000} showArrows={false} showStatus={false} onClickItem={() => window.location.href = 'https://bilimjarys.kz/tournaments'}>
                         <div>
-                            <img src='https://wmpics.space/di-9RNL.png' alt="banner-1" style={{ borderRadius: '20px' }} />
+                            <img src='https://i.imgur.com/oSPzcK9.jpeg' alt="banner-1" style={{ borderRadius: '20px' }} />
                         </div>
                     </Carousel>
                 <div className="horizontal-line"></div>
