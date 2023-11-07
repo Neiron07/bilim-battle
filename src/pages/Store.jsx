@@ -60,6 +60,12 @@ export default function Shop() {
             price:3990,  // цена 
             image: "https://png.pngtree.com/png-clipart/20210929/ourlarge/pngtree-movie-ticket-retro-gold-effect-png-image_3955591.png",
         },
+        {
+            id: 14, //
+            name: "Smart Watch Ultra Y16",  // название товара
+            price:13990,  // цена 
+            image: "https://maalgaari.shop/wp-content/uploads/2023/08/Beaitiful-Look-Ultra-Y16-Smart-Watch-With-4-Straps.webp",
+        },
         // Добавьте другие товары сюда
     ]);
     const [cart, setCart] = useState([]); // Состояние корзины покупок
