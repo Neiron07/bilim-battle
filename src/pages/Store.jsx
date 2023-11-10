@@ -87,7 +87,7 @@ export default function Shop() {
             return;
         }
     
-        const selectedProducts = cart.map((product) => `${product.name} (${product.price}🏵)`).join(", "); // Формируем список выбранных товаров
+        const selectedProducts = cart.map((product) => `${product.name} (${product.price}🌕)`).join(", "); // Формируем список выбранных товаров
     
         const message = `Мой id: ${user}\n\nХочу купить: ${selectedProducts}`;
     
@@ -124,7 +124,7 @@ export default function Shop() {
                         <ul>
                             {cart.map((product) => (
                                 <li key={product.id}>
-                                    {product.name} - {product.price}🏵{" "}
+                                    {product.name} - {product.price}🌕{" "}
                                     <button onClick={() => removeFromCart(product.id)}>
                                         Удалить
                                     </button>
