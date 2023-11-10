@@ -26,19 +26,19 @@ export default function Shop() {
         },
         {
             id: 8, //
-            name: "Мышка игровая проводная USB Logitech G102 LIGHTSYNC, White",  // название товара
+            name: "Мышка игровая проводная USB Logitech",  // название товара
             price: 1390,  // цена 
             image: `https://www.technodom.kz/_next/image?url=https%3A%2F%2Fapi.technodom.kz%2Ff3%2Fapi%2Fv1%2Fimages%2F800%2F800%2F219498_1.jpg&w=3840&q=85`
         },
         {
             id:9, //
-            name: "Игровая клавиатура HyperX Alloy Origins 60 Pink, Red Switch",  // название товара
+            name: "Игровая клавиатура HyperX",  // название товара
             price:5300,  // цена 
             image: "https://itmag.kz/upload/iblock/24/03/product_image_73803_1194999.webp",
         },
         {
             id:10, //
-            name: "Игровая гарнитура Bloody G521, Black (G521)",  // название товара
+            name: "Игровая гарнитура Bloody G521",  // название товара
             price:1790,  // цена 
             image: "https://object.pscloud.io/cms/cms/Photo/img_0_83_1814_1_1.jpg"
         },
@@ -99,7 +99,7 @@ export default function Shop() {
     const totalCost = cart.reduce((total, product) => total + product.price, 0);
 
     return (
-        <section style={{ paddingTop: 15 }}>
+        <section style={{ paddingTop: 15, backgroundColor: '#eeeeee'}}>
             <div className="container">
             <Carousel showThumbs={false} autoPlay infiniteLoop dynamicHeight interval={6000} showArrows={false} showStatus={false} onClickItem={() => window.location.href = 'https://bilimjarys.kz/tournaments'}>
                         <div>
