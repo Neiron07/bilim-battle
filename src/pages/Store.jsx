@@ -9,13 +9,13 @@ export default function Shop() {
         {
             id: 0, // здесь меняешь id с возрастанием
             name: "Iphone 15 Pro Max",  // название товара
-            price: 35000,  // цена 
+            price: 86000,  // цена 
             image: "https://fmobile.kz/_next/image?url=https%3A%2F%2Fapi.fmobile.kz%2Fimage%2F%2Fmedia%2Fsale%2Fimage%2F265306_1v%202022-09-26_11-29-42.062220%20c4b2bdde8e48a96c4a261614.jpg&w=828&q=100",
         },
         {
             id: 3,
             name: "Пауэрбэнк",
-            price: 390,
+            price: 1890,
             image: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEhIREBAWFRAQEBAVFRAVFRAQEBUVFxUXFhcSFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALcBEwMBIgACEQEDEQH/xAAcAAEAAgIDAQAAAAAAAAAAAAAAAQcFBgIDBAj/xABEEAACAQMCAwUEBgcHAgcAAAAAAQIDBBEFIQYSMUFRYXGBBxORoSIjMkJSchRDYmOSwdEkU4KisfDxM+EWJUSDssLD/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ALxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABxqVIxTlJpRXVtpJerMDqHGVlS2VT3kvw01z/AOb7PzA2AFdah7QqssqhRjBfim3OXwWEvma5fa3dV/8Aq15yT+6nyw/hjhAWpqHENpQ2qV48y+5H6c/4Y5a9TWtQ9ocVtQoN/tVGor+GOc/FGgpEgbZQ9odyn9ZSpuPdFTi/jlm3aLxTbXOEpclR/ck1v+WXR/6+BUjicUmujAvkFV6HxnXoYjU+sprsk3lfll1XrksDR9ft7pL3c8T/ALuWFP07/QDKAAAAAAAAAAAAAAAAAAAAAAAAAAACG8bvoiuNe9r9lSqOjar38ovDq55aCf7L6z9NvECyDzXl/RorNWrCC/ako/DPUqS544vLlfRrKEX92kuT/NvL5mGnNyfNJtyfWTbbfqwLQ1Dj+0hlUlOq+9Lkh/FLf4Jmtahx5d1Mqmo0o+C55/xS2+RqhIHou7yrWfNVqSm/2pOWPJPp6HSQiQJJRBKAkkgkCUAiUBDiRByi8xeMHInAG06HxxVpYhXXvId7/wCov8Xb6/E3zS9XoXKzSmm+2L2mvNfz6FMuByoVp02pQk010abTXk0BeQK+0PjuUcQuVzL8awprzXSXy9TeLC/pV481KakvDqvBrqgPSAAAAAAAAAAAAAAAAAAAAArH2xa3UcY6dQk4+9p+8uJJ4fum3GFL/G1LPhBrtKRu9LlDoi1ONp/+ZXan2ugo/kVGDX+ZzMHXtIz7ANEtL+pRfVmz6br8J7T2feebUNFT6IwFxZTgwLChNNZTyjkaHp+s1KTw3t3G1afrFOquuGBk0SREkCSUQcgCJRCJQEkkEgSSQiQCJAA4uB22l5VoyUqc3FrtTw/+DjgYA3fROO08RuY/+5Ff/KP9Pgbna3MKsVOnNSi+1PKKSlA9Wn6nWt5c1KbT8O3wa6P1AukGn6JxxTqYjcLkl+NZ5PVdV8/Q22lVjNKUZKUX0kmmn6gcwAAAAAAAAAAAAAAAVl7X+Fq9Xlv7SLnUow5K1KO850021OC7ZRzLK6tPww6v0zXlLZvc+nTS+MvZtY6jzVFH3F0//UUklzP97DpPz2fiBWdOtGaOi60+Muw8HEHD2o6Q83MOa3zhXVPMqLy8Lm7YPwfo2duna1GfaBiNQ0Tq0jCTozpvbJY/0Zox97pUZdgGu6ZxBOGFPdG02WoU6q+i9+41S/0ZrdIxsJ1KT2ygLJJRqul8SdI1PibLbXMKizF5/wBQO5EohEgSSQSBKJIRIEkoglASAABDRIA65QPfpWt3Fq805vHbHrF+cf8AbPIQ0BZGi8aUK2I1fq59/wCrfr931+Js8ZJrKeU+1booxw7jLaPxJcWrxGWYfglvD4dnoBbwNf0Xi23uMKT93Uf3ZP6LfhL+uDYAAAAAAAAAAAAAADjUpqScZJOMk04tJpp9U0+qKw4u9kFCrmtpslb1t37l5/RpPuSW9L0yvAtEAfL91K70+r7m9oypT7ObeE13wmtpLyZmbLU4VF1L61bSre7pujc0Y1aUusJpNZ712p+K3Kg4q9kVe3braXUdSn1drUaVVeFOo9p+UsPxYHgnRjNGIv8ARlLsPDZ61OnN0q0ZQqQeJQmnGcX3OL3RsNtewmuoGj3ukyh0R0W17UovZssGvaRmYLUdDTzhAdml8RRnhT2feZ6nUUlmLyiurrT503sd1hrFSi+uwFhEmI03XKdXZvD+RlovPQDkiTickBJKIAHIHHJOQJBBIAAADi4nIAdXK10M7onFlxbYi3z0/wAEstL8r6x/0MMzjKIFs6NxJb3OFGXLUf6uWE/8L6S/1MyUWsrdM2XROM69HEav1kO6T+kvKX9QLPBjdJ1y3ul9XP6XbTltNenb6GSAAAAAAAAAAAAAAMBxVwdZalHFzSXOliNeH0K8Pyz7V4PK8CmuJvZ9qOmN1KObq1W/PCL99BfvKa3f5o5XekfQgA+Z9K4hjNLLM/SrRmiwOMvZjZX7lVp/2a6e/vqaXLN/vafSXmsPxKh1vR9R0iWLqm3RziNzDM6Eu7MvuvwljwyBl7rT4zXQ1zUdD7UjMadrUJpbmV+jMCtattOm9smT0ziCdPaW68TZ73Soy7DWdQ0RrOEBtVhqlOqtnh9x70VinUpPbKwZ/SuJWsRqboDcCTzWt5Cosxfp2noAkEEgCckACRkgnH+9gGQxt8vLfH9Q2ABAAMhxJAHGE5QacW008rG2PLuNs0TjirTxC4XvI/i6VF69JevxNVOivVhH7UkgLr03VaNxHmpTUu+PSS849T2nzv8A+KI0JJ05vmXRxbTXk0b/AMF+0uncTjRuGlKW0amy37FJdPX/AJAskAAAAAAAAAAAAAOuvRjUi4TipQkmpQklKLT6pp7NHYAKp4t9j9OblW0yaoVOv6NJt28n+w+tN+G68EVtUurqxqe4vKM6VRfdmtmu+Ml9Ga8Yto+nzH61otte03RuqMatN9klun+KMlvF+K3Ao+y1SFRdT1TpRmjt4p9k91aN1tNm69Jb/o8mlXiu6EulReeH5mp6frzjJ06qcZxeJQknGUX3NPdMDIahoylnCNZvtIlB7I3q2vIzXUmvaRn2AVzb3dSi9m9jZ9K4lUsRqde8nUdDT6I1u702cHsBYlGtGazF5R2Fc2Oq1KL6s2zTOIIVMKWz7wM2DjGSe6eUSBIIAEgHXVrxj9qSQHYDDXfENKGy+kzDXXEVWf2FyrvA26rXhHeUkjFXfEVGGyfMzWfdV6ry3J59F8z00dIS3lLHlv8AN/0A7LriKrP7C5V39Dw+7r1XluT+S+f8jYtF0y3nKSnVjSUI5c3GVWb3xyxS3b9TIXWo2Vsn7m1lXmuk7mXLT9KUNpeTaYGqQ0yMVmcts42Te/dn/seOUfdzi4PZtcr6NPsMzr/ElW5pqNWcYqKfJRhGNKEW1h8sVv8AFsxkKTkqUMPnlOC5cfSznL2A+mOD793Fla1pfanRhnzSw38UDu4b0/8ARrW3oPrSowjL82My+eQBkgAAAAAAAAAAAAAAADWuLeB7HU1mvT5ayWI3NPEK8e5c33l+zLKNlAHzvxJwTqWlN1Ip3Fot/fU0+aC/e0+sfNZXijy6VxBGaWWfSRX/ABj7K7O8cq1t/Zbp788FmjN/vKaxu/xRw+/PQDS6daM0ee60+M10MFq1jqGlTULyk1BvEa0W50J/ln3+Dw/AyNjq8KkcuWMdqeMeIGI1LQurSNfrWk6b2yWPTqqaTe8ZdJdH3Ykux9nn2I8t7pcZdgGo6Zr1Sk8N7G26frFOqlvh9xrd7oEm8RW7Z06bpy5nD6UqnRKLxFeLYG71K8I7ykl6mLu+IaMOn0mYi90WssrncnHHMl0j24lJ9H4dfAnT+Hp1Hyxi5S/DCLnL1eP5IDjdcRVZ/YXKu88Xuq9V5bk/kvi/5ZNulwureLlcVKVGSi2oTl72u3jKShHPXzRr1K+k5Tj+FLswk9+gHXR0fG8n8N38X/Q75KjSWV9pLr9p/MiU2+rPLcUZdZVoU4Po3j3j8ElmT9EBD1lucacItvbL6YT7ceR6JTb6sxbqKE+Wjmb255TUlPl+9LDeUltu8HpqX0Fst34AepVnDeMW34PGPPwPPdXFSX258qf3Y7fMzWj8Hare4dK2dOm/1lX6qOO/6W79EzedE9i9NYlfXUqj/uqS5IeTnLLa8lECooTpppQhzTbwtuZt+Bbfsv4BqqpG+voODjvRt5LEk/7ya7H3J7+XbYeicL2Nkv7NbQg/x45qj85yzL5mYAAAAAAAAAAAAAAAAAAAAAAAAA6bu1p1oSp1YRnTmsShOKnCS7mnsyqOLPY/jmraVPklu3aVJN0n4U5vePlLK8UW6APl39Or2kpW91TnSrLOYVE1Lr9pP7yz2rK8TZbPUoVF1Lp4g4etL+n7q7oxqR35W9pwf4oTW8X5FN8Uey69sXKrYSdzbrL91srmC8ltU9MPwYHddSjCjVq9qjhebMHwvSahKqse8qzUIN74lL72O3CUpY7eU8dHWffWtalLapCW8XtLbZpp9Gn2Hr0C8iqVDuhWefBuEkn/AC9QMvq95C3lTpQgpRhKLlGTypb5lzvtct8t9cs6tT4lrOCjGqqFPG1KnFUI+WI/SfxMTrs+apKXNjPSSe68jA1a1KOXvOXe9/iBydw+aTppy5nv1Sz35Z2W1NxcpzaUpvdLosGS0XhvU73H6PbS5Hj62a91T805YT9Mm86N7GJSxK/u89PqqK//AEkv/r6gVnVv4Lpu/AyGj8G6netyoWkowm8+9qfUU8fmeHNeWS/dC4L06yw6FtBTX6yS95U8+aWWvTBnwKi0L2LRWHe3TfTNKguSPk5tbr0RYOh8I2Flj9HtYRkv1jXvKv8AHLL+BnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGq8W8BWWo5nOHurnGFc0sRqeU10qLwl6NGgXXsmvYfRo1KMk+suadNS86bi8ekmXSAKf0z2N1JtSvbvb+7o5f+efT4G+aHwLptnh0rWLmv1tT62pnvTl9n0wbIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/Z",
         },
         {
@@ -27,13 +27,13 @@ export default function Shop() {
         {
             id: 8, //
             name: "Мышка игровая проводная USB Logitech",  // название товара
-            price: 1390,  // цена 
+            price: 1690,  // цена 
             image: `https://www.technodom.kz/_next/image?url=https%3A%2F%2Fapi.technodom.kz%2Ff3%2Fapi%2Fv1%2Fimages%2F800%2F800%2F219498_1.jpg&w=3840&q=85`
         },
         {
             id:9, //
             name: "Игровая клавиатура HyperX",  // название товара
-            price:5300,  // цена 
+            price:5290,  // цена 
             image: "https://itmag.kz/upload/iblock/24/03/product_image_73803_1194999.webp",
         },
         {
@@ -103,7 +103,7 @@ export default function Shop() {
             <div className="container">
             <Carousel showThumbs={false} autoPlay infiniteLoop dynamicHeight interval={6000} showArrows={false} showStatus={false} onClickItem={() => window.location.href = 'https://bilimjarys.kz/tournaments'}>
                         <div>
-                            <img src='https://i.imgur.com/pDokTww.jpg' alt="banner-1" style={{ borderRadius: '20px' }} />
+                            <img src='https://i.imgur.com/AKEwt9n.jpg' alt="banner-1" style={{ borderRadius: '20px' }} />
                         </div>
                     </Carousel>
                 <div className="horizontal-line"></div>
