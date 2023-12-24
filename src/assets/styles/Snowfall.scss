@@ -1,0 +1,34 @@
+// Snowfall.scss
+
+.snowfall-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  .snowflake {
+    position: absolute;
+    background-color: #fff;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: fall linear infinite;
+    animation-duration: 5s; // Длительность анимации (можно настроить)
+    animation-delay: calc(5s * random()); // Различные задержки для каждой снежинки
+    left: calc(100vw * random()); // Случайные начальные координаты по горизонтали
+    top: calc(-10vh * random()); // Случайные начальные координаты по вертикали
+  }
+  
+  @keyframes fall {
+    from {
+      transform: translateY(-10vh);
+    }
+    to {
+      transform: translateY(110vh);
+    }
+  }
+  

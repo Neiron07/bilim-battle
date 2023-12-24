@@ -80,6 +80,8 @@
 }
 
 .navbar {
+  background-image: url(https://nibbl.ru/wp-content/uploads/2019/12/happy_new_year_0.jpg);
+  background-position: center;
   position: sticky;
   top: 0;
   display: flex;
@@ -103,6 +105,7 @@
   font-weight: bold;
   margin-right: -100px; /* Добавленный отступ справа */
   color: #2443ac !important;
+  -webkit-text-stroke: 0.1px white;
 }
 
 /* Добавьте этот стиль для .coin-icon */
@@ -118,9 +121,10 @@
 
 .logo-text {
   margin-left: 5rem;
-  color:#0148BF;
+  color: #0148BF;
   font-size: 1.5rem;
   font-weight: bold;
+  -webkit-text-stroke: 0.5px white;
 }
 
 .menu-toggle {
@@ -136,6 +140,7 @@
   width: 24px;
   height: 20px;
   transition: transform 0.3s ease-in-out;
+  -webkit-text-stroke: 0.5px white;
 }
 
 .menu-icon.open {

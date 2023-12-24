@@ -13,6 +13,9 @@ import Pages from "./pages/Pages";
 // ScrollTop
 import ScrollToTop from "./scrollTop";
 
+// Snowfall
+import Snowfall from "./components/Snowfall";
+
 // Main styles
 import "./assets/styles/Main.scss";
 
@@ -25,6 +28,7 @@ export default function App() {
       <I18nextProvider i18n={i18n}>
       <ScrollToTop />
       <Nav/>
+      <Snowfall/>
       <Pages/>
       <Footer/>
       </I18nextProvider>
